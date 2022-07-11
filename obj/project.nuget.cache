@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "M7Z8qd7m6ntpHD1Z8S0pab/cgMrWcVxENx/tEMtX+SrjoyJnvne7RZ4LjIQ4tcJmH7/qDf3yUhNJX4SqSUkRQA==",
+  "dgSpecHash": "+oarakiIlSqdcuRzGFwxFFxgOwW+cJbZXIFuomwWeHgfKPhQSChnsJxb9/hyTZLto0mZNcOe70AihVqXF1sK2A==",
   "success": true,
-  "projectFilePath": "C:\\Users\\NathanGui\\source\\repos\\CosmosLauncherApp\\CosmosLauncherApp.csproj",
+  "projectFilePath": "C:\\Users\\NathanGui\\Documents\\GitHub\\CosmosLauncherApp\\CosmosLauncherApp.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\NathanGui\\.nuget\\packages\\bcmakecert\\2.0.9\\bcmakecert.2.0.9.nupkg.sha512",
     "C:\\Users\\NathanGui\\.nuget\\packages\\dotnetzip\\1.13.4\\dotnetzip.1.13.4.nupkg.sha512",

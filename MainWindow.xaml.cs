@@ -36,7 +36,7 @@ namespace CosmosLauncherApp
         {
             var Fortnite_Path = Folder_Label.Text;
             Process Fortnite = new Process();
-            Fortnite.StartInfo.FileName = Fortnite_Path + "/Fortnite/FortniteGame/Binaries/Win64/FortniteClient-Win64-Shipping.exe";
+            Fortnite.StartInfo.FileName = Fortnite_Path + "/FortniteGame/Binaries/Win64/FortniteClient-Win64-Shipping.exe";
             Fortnite.StartInfo.Arguments = "-skippatchcheck -epicportal -HTTP=WinINet -log";
             Fortnite.Start();
         }
@@ -53,7 +53,7 @@ namespace CosmosLauncherApp
             }
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void Update_btn_Click(object sender, RoutedEventArgs e)
         {
             Update();
         }
@@ -75,6 +75,12 @@ namespace CosmosLauncherApp
         private void Help_btn_Click(object sender, RoutedEventArgs e)
         {
             Process.Start(new ProcessStartInfo("https://discord.com/channels/989199793362436177/989268371482759248") { UseShellExecute = true }); 
+        }
+
+        private void Settings_btn_Click(object sender, RoutedEventArgs e)
+        {
+            var Update_Settings = new Settings();
+            Update_Settings.Show();
         }
     }
 }

@@ -1861,11 +1861,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\NathanGui\\source\\repos\\CosmosLauncherApp\\CosmosLauncherApp.csproj",
+      "projectUniqueName": "C:\\Users\\NathanGui\\Documents\\GitHub\\CosmosLauncherApp\\CosmosLauncherApp.csproj",
       "projectName": "CosmosLauncherApp",
-      "projectPath": "C:\\Users\\NathanGui\\source\\repos\\CosmosLauncherApp\\CosmosLauncherApp.csproj",
+      "projectPath": "C:\\Users\\NathanGui\\Documents\\GitHub\\CosmosLauncherApp\\CosmosLauncherApp.csproj",
       "packagesPath": "C:\\Users\\NathanGui\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\NathanGui\\source\\repos\\CosmosLauncherApp\\obj\\",
+      "outputPath": "C:\\Users\\NathanGui\\Documents\\GitHub\\CosmosLauncherApp\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\NathanGui\\AppData\\Roaming\\NuGet\\NuGet.Config",
