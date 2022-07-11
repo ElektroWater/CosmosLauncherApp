@@ -7,14 +7,14 @@
         xmlns:ui="http://schemas.modernwpf.com/2019"
         ui:WindowHelper.UseModernWindowStyle="True"
         mc:Ignorable="d"
-        Title="Settings" Height="280" Width="500" WindowStyle="ThreeDBorderWindow" WindowStartupLocation="CenterScreen" Icon="/img/Logo.png" Background="#FF9C00FF">
+        Title="Paramètres" Height="280" Width="650" WindowStyle="ThreeDBorderWindow" WindowStartupLocation="CenterScreen" Icon="/img/Logo.png" Background="#FF9C00FF" ResizeMode="NoResize">
     <Grid>
-        <TextBox x:Name="Username_Textbox" HorizontalAlignment="Left" Margin="129,10,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="261"/>
-        <Label Content="Nom d'utilisateur :" HorizontalAlignment="Left" Margin="10,17,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="Username_Textbox" HorizontalAlignment="Left" Margin="162,10,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="378"/>
+        <Label Content="Nom d'utilisateur :" HorizontalAlignment="Left" Margin="27,17,0,0" VerticalAlignment="Top"/>
         <Label Content="Credit to CuteLess and ElektroWater for the launcher" HorizontalAlignment="Center" Margin="0,0,0,15" FontSize="10" Height="13" VerticalAlignment="Bottom"/>
-        <Button x:Name="Save_Username_btn" Content="Sauvegarder" Margin="395,10,0,0" VerticalAlignment="Top" Click="Save_Username_btn_Click"/>
-        <TextBox HorizontalAlignment="Left" Margin="162,47,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="228"/>
-        <Button Content="Sauvegarder" Margin="395,47,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="Save_Username_btn" Content="Sauvegarder" Margin="545,10,0,0" VerticalAlignment="Top" Click="Save_Username_btn_Click"/>
+        <TextBox x:Name="Argument_Textbox" HorizontalAlignment="Left" Margin="162,47,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="378"/>
+        <Button x:Name="Save_Argument" Content="Sauvegarder" Margin="545,47,0,0" VerticalAlignment="Top" Click="Save_Argument_Click"/>
         <Label Content="Arguments additionels :" HorizontalAlignment="Left" Margin="10,54,0,0" VerticalAlignment="Top"/>
 
     </Grid>

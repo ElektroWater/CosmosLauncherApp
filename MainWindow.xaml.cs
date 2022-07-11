@@ -37,7 +37,7 @@ namespace CosmosLauncherApp
             var Fortnite_Path = Folder_Label.Text;
             Process Fortnite = new Process();
             Fortnite.StartInfo.FileName = Fortnite_Path + "/FortniteGame/Binaries/Win64/FortniteClient-Win64-Shipping.exe";
-            Fortnite.StartInfo.Arguments = "-skippatchcheck -epicportal -HTTP=WinINet -log";
+            Fortnite.StartInfo.Arguments = $"{Properties.Settings.Default["Argument"]} -skippatchcheck -epicportal -HTTP=WinINet -log -AUTH_LOGIN={Properties.Settings.Default["Username"]} -AUTH_PASSWORD=unused -AUTH_TYPE=epic";
             Fortnite.Start();
         }
 

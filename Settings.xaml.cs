@@ -23,10 +23,17 @@ namespace CosmosLauncherApp
         {
             InitializeComponent();
             Username_Textbox.Text = Properties.Settings.Default["Username"].ToString();
+            Argument_Textbox.Text = Properties.Settings.Default["Argument"].ToString();
         }
         private void Save_Username_btn_Click(object sender, RoutedEventArgs e)
         {
             Properties.Settings.Default["Username"] = Username_Textbox.Text;
+            Properties.Settings.Default.Save();
+        }
+
+        private void Save_Argument_Click(object sender, RoutedEventArgs e)
+        {
+            Properties.Settings.Default["Argument"] = Argument_Textbox.Text;
             Properties.Settings.Default.Save();
         }
     }

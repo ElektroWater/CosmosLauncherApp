@@ -46,5 +46,17 @@ namespace CosmosLauncherApp.Properties {
                 this["Username"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string Argument {
+            get {
+                return ((string)(this["Argument"]));
+            }
+            set {
+                this["Argument"] = value;
+            }
+        }
     }
 }
