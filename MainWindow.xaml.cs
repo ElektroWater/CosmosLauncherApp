@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Text;
@@ -29,16 +30,28 @@ namespace CosmosLauncherApp
         {
             InitializeComponent();
             Folder_Label.Text = Properties.Settings.Default["Fortnite_Path"].ToString();
-            Update();
+            Update(false);
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            var Fortnite_Path = Folder_Label.Text;
-            Process Fortnite = new Process();
-            Fortnite.StartInfo.FileName = Fortnite_Path + "/FortniteGame/Binaries/Win64/FortniteClient-Win64-Shipping.exe";
-            Fortnite.StartInfo.Arguments = $"{Properties.Settings.Default["Argument"]} -skippatchcheck -epicportal -HTTP=WinINet -log -AUTH_LOGIN={Properties.Settings.Default["Username"]} -AUTH_PASSWORD=unused -AUTH_TYPE=epic";
-            Fortnite.Start();
+            if (File.Exists(Properties.Settings.Default["Fortnite_Path"] + "/FortniteGame/Binaries/Win64/FortniteLauncher.exe"))
+            {
+                if (Properties.Settings.Default["Username"] != null)
+                {
+                    var Fortnite_Path = Folder_Label.Text;
+                    //Process Fortnite = new Process();
+                    //Fortnite.StartInfo.FileName = Fortnite_Path + "/FortniteGame/Binaries/Win64/FortniteLauncher.exe";
+                    //Fortnite.StartInfo.Arguments = $"{Properties.Settings.Default["Argument"]} -NOSSLPINNING -skippatchcheck -epicportal -HTTP=WinINet -AUTH_LOGIN={Properties.Settings.Default["Username"]} -AUTH_PASSWORD=unused -AUTH_TYPE=epic";
+                    //Fortnite.Start();
+                    var test = new Process();
+                    test.StartInfo.FileName = Fortnite_Path + "/FortniteGame/Binaries/Win64/Launcher.bat";
+                }
+                else
+                {
+                    new Message("Erreur", "Veuillez saisir un nom d'utilisateur dans les paramètres.", 110, 350).Show();
+                }
+            }
         }
 
         private void Folder_btn_Click(object sender, RoutedEventArgs e)
@@ -47,23 +60,36 @@ namespace CosmosLauncherApp
             DialogResult result = folderDlg.ShowDialog();
             if (result == System.Windows.Forms.DialogResult.OK)
             {
-                Folder_Label.Text = folderDlg.SelectedPath;
-                Properties.Settings.Default["Fortnite_Path"] = folderDlg.SelectedPath;
-                Properties.Settings.Default.Save();
+                if (File.Exists(folderDlg.SelectedPath + "/FortniteGame/Binaries/Win64/FortniteLauncher.exe"))
+                {
+                    Folder_Label.Text = folderDlg.SelectedPath;
+                    Properties.Settings.Default["Fortnite_Path"] = folderDlg.SelectedPath;
+                    Properties.Settings.Default.Save();
+                }
+                else
+                {
+                    new Message("Erreur", "Dossier d'installation de Fortnite invalide.", 110, 350).Show();
+                }
             }
         }
 
         private void Update_btn_Click(object sender, RoutedEventArgs e)
         {
-            Update();
+            Update(true);
         }
-        private void Update()
+        private void Update(bool message)
         {
             WebClient webClient = new WebClient();
             if(!webClient.DownloadString("https://pastebin.com/raw/0pJiM8gX").Contains(version))
             {
                 var Update_Fenetre = new Update();
                 Update_Fenetre.Show();
+            } else
+            {
+                if (message)
+                {
+                    new Message("Mise à jour", "Vous êtes à jour", 110, 350).Show();
+                }
             }
         }
 
@@ -79,8 +105,7 @@ namespace CosmosLauncherApp
 
         private void Settings_btn_Click(object sender, RoutedEventArgs e)
         {
-            var Update_Settings = new Settings();
-            Update_Settings.Show();
+            new Settings().Show();
         }
     }
 }

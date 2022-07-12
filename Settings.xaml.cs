@@ -27,14 +27,25 @@ namespace CosmosLauncherApp
         }
         private void Save_Username_btn_Click(object sender, RoutedEventArgs e)
         {
-            Properties.Settings.Default["Username"] = Username_Textbox.Text;
-            Properties.Settings.Default.Save();
+            if (Username_Textbox.Text.Length == 0)
+            {
+                new Message("Erreur","Vous devez saisir un nom d'utilisateur.", 110, 350).Show();
+            }
+            else
+            {
+                Properties.Settings.Default["Username"] = Username_Textbox.Text;
+                Properties.Settings.Default.Save();
+                new Message("Succès", "Nom d'utilisateur sauvegarder avec succès.", 110, 350).Show();
+            }
+            
         }
 
         private void Save_Argument_Click(object sender, RoutedEventArgs e)
         {
             Properties.Settings.Default["Argument"] = Argument_Textbox.Text;
             Properties.Settings.Default.Save();
+            new Message("Succès", "Arguments additionnels sauvegarder avec succès.", 110, 350).Show();
         }
+
     }
 }
