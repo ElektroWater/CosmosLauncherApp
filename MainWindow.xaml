@@ -13,7 +13,7 @@
     </Window.Background>
     <Grid x:Name="Fenetre">
         <Button Content="Lancer Fortnite" Margin="0,370,0,0" VerticalAlignment="Top" Click="Button_Click" HorizontalAlignment="Center"/>
-        <TextBox x:Name="Folder_Label" HorizontalAlignment="Left" Margin="55,320,0,0" TextWrapping="Wrap" Width="658" Height="32" VerticalAlignment="Top" VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Visible" IsEnabled="False" SelectionOpacity="1"/>
+        <TextBox x:Name="Folder_Label" HorizontalAlignment="Left" Margin="55,320,0,0" TextWrapping="Wrap" Width="658" Height="32" VerticalAlignment="Top" VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Visible" IsReadOnly="True"/>
         <Button x:Name="Folder_btn" Content="..." Margin="0,320,55,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="27" Click="Folder_btn_Click"/>
 
         <Button Content="Vérifier les mises à jours" Margin="55,370,0,0" VerticalAlignment="Top" Click="Update_btn_Click"/>

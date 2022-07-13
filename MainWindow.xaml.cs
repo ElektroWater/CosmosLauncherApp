@@ -35,17 +35,17 @@ namespace CosmosLauncherApp
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            if (File.Exists(Properties.Settings.Default["Fortnite_Path"] + "/FortniteGame/Binaries/Win64/FortniteLauncher.exe"))
+            bool File1 = File.Exists(Properties.Settings.Default["Fortnite_Path"] + "/FortniteGame/Binaries/Win64/FortniteLauncher.exe");
+            bool File2 = File.Exists(Properties.Settings.Default["Fortnite_Path"] + "/FortniteGame/Binaries/Win64/FortniteClient-Win64-Shipping.exe");
+            if (File1 || File2)
             {
                 if (Properties.Settings.Default["Username"] != null)
                 {
                     var Fortnite_Path = Folder_Label.Text;
-                    //Process Fortnite = new Process();
-                    //Fortnite.StartInfo.FileName = Fortnite_Path + "/FortniteGame/Binaries/Win64/FortniteLauncher.exe";
-                    //Fortnite.StartInfo.Arguments = $"{Properties.Settings.Default["Argument"]} -NOSSLPINNING -skippatchcheck -epicportal -HTTP=WinINet -AUTH_LOGIN={Properties.Settings.Default["Username"]} -AUTH_PASSWORD=unused -AUTH_TYPE=epic";
-                    //Fortnite.Start();
-                    var test = new Process();
-                    test.StartInfo.FileName = Fortnite_Path + "/FortniteGame/Binaries/Win64/Launcher.bat";
+                    Process Fortnite = new Process();
+                    Fortnite.StartInfo.FileName = Fortnite_Path + "/FortniteGame/Binaries/Win64/FortniteLauncher.exe";
+                    Fortnite.StartInfo.Arguments = $"{Properties.Settings.Default["Argument"]} -NOSSLPINNING -skippatchcheck -epicportal -HTTP=WinINet -AUTH_LOGIN={Properties.Settings.Default["Username"]} -AUTH_PASSWORD=unused -AUTH_TYPE=epic";
+                    Fortnite.Start();
                 }
                 else
                 {
@@ -60,7 +60,9 @@ namespace CosmosLauncherApp
             DialogResult result = folderDlg.ShowDialog();
             if (result == System.Windows.Forms.DialogResult.OK)
             {
-                if (File.Exists(folderDlg.SelectedPath + "/FortniteGame/Binaries/Win64/FortniteLauncher.exe"))
+                bool File1 = File.Exists(folderDlg.SelectedPath + "/FortniteGame/Binaries/Win64/FortniteLauncher.exe");
+                bool File2 = File.Exists(folderDlg.SelectedPath + "/FortniteGame/Binaries/Win64/FortniteClient-Win64-Shipping.exe");
+                if (File1 || File2)
                 {
                     Folder_Label.Text = folderDlg.SelectedPath;
                     Properties.Settings.Default["Fortnite_Path"] = folderDlg.SelectedPath;
