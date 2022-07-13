@@ -14,6 +14,18 @@
           }
         }
       },
+      "DiscordRichPresence/1.0.175": {
+        "dependencies": {
+          "Microsoft.Win32.Registry": "4.5.0",
+          "Newtonsoft.Json": "12.0.2"
+        },
+        "runtime": {
+          "lib/netstandard2.0/DiscordRPC.dll": {
+            "assemblyVersion": "1.0.175.0",
+            "fileVersion": "1.0.175.0"
+          }
+        }
+      },
       "DotNetZip/1.13.4": {
         "dependencies": {
           "System.Security.Permissions": "4.5.0",
@@ -462,6 +474,14 @@
           }
         }
       },
+      "Newtonsoft.Json/12.0.2": {
+        "runtime": {
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {
+            "assemblyVersion": "12.0.0.0",
+            "fileVersion": "12.0.2.23222"
+          }
+        }
+      },
       "System.ComponentModel.Composition/4.6.0": {
         "runtime": {
           "lib/netcoreapp2.0/System.ComponentModel.Composition.dll": {
@@ -624,6 +644,13 @@
       "path": "bcmakecert/2.0.9",
       "hashPath": "bcmakecert.2.0.9.nupkg.sha512"
     },
+    "DiscordRichPresence/1.0.175": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-qSWobPTbvHh9gOoBYT8C8eUhKtVdBI/WvW7GY9lNMEtsZIpL6nxCvYJwjsGL3dqlEAGY5k0vdq+wnuDLVBSV2w==",
+      "path": "discordrichpresence/1.0.175",
+      "hashPath": "discordrichpresence.1.0.175.nupkg.sha512"
+    },
     "DotNetZip/1.13.4": {
       "type": "package",
       "serviceable": true,
@@ -665,6 +692,13 @@
       "sha512": "sha512-eWe90HciyudQQtZVbZ9QFssS74BwK69W7cBd52AEZHmrsS4hrSA+/BpUbAFWzzFDH6FBE1xsHPiRC+wHS7xgJw==",
       "path": "modernwpfui/0.9.6",
       "hashPath": "modernwpfui.0.9.6.nupkg.sha512"
+    },
+    "Newtonsoft.Json/12.0.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-rTK0s2EKlfHsQsH6Yx2smvcTCeyoDNgCW7FEYyV01drPlh2T243PR2DiDXqtC5N4GDm4Ma/lkxfW5a/4793vbA==",
+      "path": "newtonsoft.json/12.0.2",
+      "hashPath": "newtonsoft.json.12.0.2.nupkg.sha512"
     },
     "System.ComponentModel.Composition/4.6.0": {
       "type": "package",

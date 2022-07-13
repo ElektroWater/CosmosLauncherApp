@@ -17,6 +17,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using CosmosLauncherApp;
+using DiscordRPC;
 
 namespace CosmosLauncherApp
 {
@@ -31,6 +32,7 @@ namespace CosmosLauncherApp
             InitializeComponent();
             Folder_Label.Text = Properties.Settings.Default["Fortnite_Path"].ToString();
             Update(false);
+            Discord();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -42,10 +44,17 @@ namespace CosmosLauncherApp
                 if (Properties.Settings.Default["Username"] != null)
                 {
                     var Fortnite_Path = Folder_Label.Text;
-                    Process Fortnite = new Process();
-                    Fortnite.StartInfo.FileName = Fortnite_Path + "/FortniteGame/Binaries/Win64/FortniteLauncher.exe";
-                    Fortnite.StartInfo.Arguments = $"{Properties.Settings.Default["Argument"]} -NOSSLPINNING -skippatchcheck -epicportal -HTTP=WinINet -AUTH_LOGIN={Properties.Settings.Default["Username"]} -AUTH_PASSWORD=unused -AUTH_TYPE=epic";
+                    Process Fortnite = new Process()
+                    {
+                        StartInfo =
+                        {
+                            FileName = Fortnite_Path + "/FortniteGame/Binaries/Win64/FortniteClient-Win64-Shipping.exe",
+                            Arguments = $"{Properties.Settings.Default["Argument"]} -NOSSLPINNING -skippatchcheck -epicportal -HTTP=WinINet -AUTH_LOGIN={Properties.Settings.Default["Username"]} -AUTH_PASSWORD=unused -AUTH_TYPE=epic"
+                        }
+                    };
                     Fortnite.Start();
+                    Injector.InjectDll(Fortnite.Id, "Fortnite_Console.dll");
+                    new Message("Erreur", "Veuillez saisir un nom d'utilisateur dans les paramètres." + Fortnite.Id, 110, 500).Show();
                 }
                 else
                 {
@@ -108,6 +117,21 @@ namespace CosmosLauncherApp
         private void Settings_btn_Click(object sender, RoutedEventArgs e)
         {
             new Settings().Show();
+        }
+        private void Discord()
+        {
+            var client = new DiscordRpcClient("996719729085530182");
+            client.Initialize();
+            client.SetPresence(new RichPresence()
+            {
+                Details = "discord.gg/cosmos",
+                State = "Dans le lanceur",
+                Assets = new Assets()
+                {
+                    LargeImageKey = "bannier_v1",
+                    LargeImageText = "Lachee's Discord IPC Library",
+                }
+            });
         }
     }
 }

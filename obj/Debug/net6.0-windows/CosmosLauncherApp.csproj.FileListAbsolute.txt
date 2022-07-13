@@ -320,3 +320,5 @@ C:\Users\NathanGui\Documents\GitHub\CosmosLauncherApp\obj\Debug\net6.0-windows\S
 C:\Users\NathanGui\Documents\GitHub\CosmosLauncherApp\obj\Debug\net6.0-windows\Settings.baml
 C:\Users\NathanGui\Documents\GitHub\CosmosLauncherApp\obj\Debug\net6.0-windows\Message.g.cs
 C:\Users\NathanGui\Documents\GitHub\CosmosLauncherApp\obj\Debug\net6.0-windows\Message.baml
+C:\Users\NathanGui\Documents\GitHub\CosmosLauncherApp\bin\Debug\net6.0-windows\DiscordRPC.dll
+C:\Users\NathanGui\Documents\GitHub\CosmosLauncherApp\bin\Debug\net6.0-windows\Newtonsoft.Json.dll
