@@ -58,5 +58,17 @@ namespace CosmosLauncherApp.Properties {
                 this["Argument"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int Fortniteid {
+            get {
+                return ((int)(this["Fortniteid"]));
+            }
+            set {
+                this["Fortniteid"] = value;
+            }
+        }
     }
 }

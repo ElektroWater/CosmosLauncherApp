@@ -27,6 +27,7 @@ namespace CosmosLauncherApp
     public partial class MainWindow : Window
     {
         string version = "1.0.0";
+        int id;
         public MainWindow()
         {
             InitializeComponent();
@@ -35,11 +36,9 @@ namespace CosmosLauncherApp
             Discord();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Launch_btn_Click(object sender, RoutedEventArgs e)
         {
-            bool File1 = File.Exists(Properties.Settings.Default["Fortnite_Path"] + "/FortniteGame/Binaries/Win64/FortniteLauncher.exe");
-            bool File2 = File.Exists(Properties.Settings.Default["Fortnite_Path"] + "/FortniteGame/Binaries/Win64/FortniteClient-Win64-Shipping.exe");
-            if (File1 || File2)
+            if (File.Exists(Properties.Settings.Default["Fortnite_Path"] + "/FortniteGame/Binaries/Win64/FortniteLauncher.exe"))
             {
                 if (Properties.Settings.Default["Username"] != null)
                 {
@@ -48,13 +47,13 @@ namespace CosmosLauncherApp
                     {
                         StartInfo =
                         {
-                            FileName = Fortnite_Path + "/FortniteGame/Binaries/Win64/FortniteClient-Win64-Shipping.exe",
-                            Arguments = $"{Properties.Settings.Default["Argument"]} -NOSSLPINNING -skippatchcheck -epicportal -HTTP=WinINet -AUTH_LOGIN={Properties.Settings.Default["Username"]} -AUTH_PASSWORD=unused -AUTH_TYPE=epic"
+                            FileName = Fortnite_Path + "/FortniteGame/Binaries/Win64/FortniteLauncher.exe",
+                            Arguments = $"{Properties.Settings.Default["Argument"]} -NOSSLPINNING -skippatchcheck -epicportal -skippatchcheck -NOSSLPINNING -NoCodeGuards -HTTP=WinINet -AUTH_LOGIN={Properties.Settings.Default["Username"]} -AUTH_PASSWORD=unused -AUTH_TYPE=epic"
                         }
                     };
                     Fortnite.Start();
-                    Injector.InjectDll(Fortnite.Id, "Fortnite_Console.dll");
-                    new Message("Erreur", "Veuillez saisir un nom d'utilisateur dans les paramètres." + Fortnite.Id, 110, 500).Show();
+                    id = Fortnite.Id;
+                    //new Message("Erreur", Fortnite.Id, 110, 500).Show();
                 }
                 else
                 {
@@ -69,9 +68,7 @@ namespace CosmosLauncherApp
             DialogResult result = folderDlg.ShowDialog();
             if (result == System.Windows.Forms.DialogResult.OK)
             {
-                bool File1 = File.Exists(folderDlg.SelectedPath + "/FortniteGame/Binaries/Win64/FortniteLauncher.exe");
-                bool File2 = File.Exists(folderDlg.SelectedPath + "/FortniteGame/Binaries/Win64/FortniteClient-Win64-Shipping.exe");
-                if (File1 || File2)
+                if (File.Exists(folderDlg.SelectedPath + "/FortniteGame/Binaries/Win64/FortniteLauncher.exe"))
                 {
                     Folder_Label.Text = folderDlg.SelectedPath;
                     Properties.Settings.Default["Fortnite_Path"] = folderDlg.SelectedPath;
@@ -129,7 +126,7 @@ namespace CosmosLauncherApp
                 Assets = new Assets()
                 {
                     LargeImageKey = "bannier_v1",
-                    LargeImageText = "Lachee's Discord IPC Library",
+                    LargeImageText = "Cosmos Battle Royale",
                 }
             });
         }
