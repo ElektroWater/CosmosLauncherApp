@@ -70,5 +70,17 @@ namespace CosmosLauncherApp.Properties {
                 this["Fortniteid"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool Logs {
+            get {
+                return ((bool)(this["Logs"]));
+            }
+            set {
+                this["Logs"] = value;
+            }
+        }
     }
 }

@@ -48,8 +48,9 @@ namespace CosmosLauncherApp
                         StartInfo =
                         {
                             FileName = Fortnite_Path + "/FortniteGame/Binaries/Win64/FortniteLauncher.exe",
-                            Arguments = $"{Properties.Settings.Default["Argument"]} -NOSSLPINNING -skippatchcheck -epicportal -skippatchcheck -NOSSLPINNING -NoCodeGuards -HTTP=WinINet -AUTH_LOGIN={Properties.Settings.Default["Username"]} -AUTH_PASSWORD=unused -AUTH_TYPE=epic"
-                        }
+                            Arguments = $"{Properties.Settings.Default["Argument"]} -NOSSLPINNING -skippatchcheck -epicportal -skippatchcheck -NOSSLPINNING -NoCodeGuards -HTTP=WinINet -AUTH_LOGIN={Properties.Settings.Default["Username"]} -AUTH_PASSWORD=unused -AUTH_TYPE=epic",
+                            CreateNoWindow = Properties.Settings.Default["Logs"].ToString() == "True"
+                }
                     };
                     Fortnite.Start();
                     id = Fortnite.Id;

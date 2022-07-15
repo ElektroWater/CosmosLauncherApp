@@ -24,6 +24,7 @@ namespace CosmosLauncherApp
             InitializeComponent();
             Username_Textbox.Text = Properties.Settings.Default["Username"].ToString();
             Argument_Textbox.Text = Properties.Settings.Default["Argument"].ToString();
+            Logs_Checkbox.IsChecked = Properties.Settings.Default["Logs"].ToString() == "True";
         }
         private void Save_Username_btn_Click(object sender, RoutedEventArgs e)
         {
@@ -47,5 +48,11 @@ namespace CosmosLauncherApp
             new Message("Succès", "Arguments additionnels sauvegarder avec succès.", 110, 350).Show();
         }
 
+        private void Save_Logs(object sender, RoutedEventArgs e)
+        {
+            Properties.Settings.Default["Logs"] = Logs_Checkbox.IsChecked;
+            Properties.Settings.Default.Save();
+            new Message("Succès", "Le paramètre est sauvegarder avec succès.", 110, 350).Show();
+        }
     }
 }
