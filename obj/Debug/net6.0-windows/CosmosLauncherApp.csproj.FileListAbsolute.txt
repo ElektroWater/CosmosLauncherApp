@@ -162,13 +162,8 @@ C:\Users\NathanGui\Documents\GitHub\CosmosLauncherApp\bin\Debug\net6.0-windows\C
 C:\Users\NathanGui\Documents\GitHub\CosmosLauncherApp\bin\Debug\net6.0-windows\CosmosLauncherApp.runtimeconfig.json
 C:\Users\NathanGui\Documents\GitHub\CosmosLauncherApp\bin\Debug\net6.0-windows\CosmosLauncherApp.dll
 C:\Users\NathanGui\Documents\GitHub\CosmosLauncherApp\bin\Debug\net6.0-windows\CosmosLauncherApp.pdb
-C:\Users\NathanGui\Documents\GitHub\CosmosLauncherApp\bin\Debug\net6.0-windows\BCMakeCert.dll
-C:\Users\NathanGui\Documents\GitHub\CosmosLauncherApp\bin\Debug\net6.0-windows\DotNetZip.dll
-C:\Users\NathanGui\Documents\GitHub\CosmosLauncherApp\bin\Debug\net6.0-windows\FiddlerCore.dll
 C:\Users\NathanGui\Documents\GitHub\CosmosLauncherApp\bin\Debug\net6.0-windows\ModernWpf.Controls.dll
 C:\Users\NathanGui\Documents\GitHub\CosmosLauncherApp\bin\Debug\net6.0-windows\ModernWpf.dll
-C:\Users\NathanGui\Documents\GitHub\CosmosLauncherApp\bin\Debug\net6.0-windows\System.ComponentModel.Composition.dll
-C:\Users\NathanGui\Documents\GitHub\CosmosLauncherApp\bin\Debug\net6.0-windows\Telerik.NetworkConnections.dll
 C:\Users\NathanGui\Documents\GitHub\CosmosLauncherApp\bin\Debug\net6.0-windows\af-ZA\ModernWpf.Controls.resources.dll
 C:\Users\NathanGui\Documents\GitHub\CosmosLauncherApp\bin\Debug\net6.0-windows\af-ZA\ModernWpf.resources.dll
 C:\Users\NathanGui\Documents\GitHub\CosmosLauncherApp\bin\Debug\net6.0-windows\am-ET\ModernWpf.Controls.resources.dll

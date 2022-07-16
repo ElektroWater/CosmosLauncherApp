@@ -40,7 +40,7 @@ namespace CosmosLauncherApp
         {
             if (File.Exists(Properties.Settings.Default["Fortnite_Path"] + "/FortniteGame/Binaries/Win64/FortniteLauncher.exe"))
             {
-                if (Properties.Settings.Default["Username"] != null)
+                if (Properties.Settings.Default["Username"] != "")
                 {
                     var Fortnite_Path = Folder_Label.Text;
                     Process Fortnite = new Process()
@@ -58,8 +58,12 @@ namespace CosmosLauncherApp
                 }
                 else
                 {
-                    new Message("Erreur", "Veuillez saisir un nom d'utilisateur dans les paramètres.", 110, 350).Show();
+                    new Message("Erreur", "Veuillez saisir un nom d'utilisateur dans les paramètres.", 110, 360).Show();
                 }
+            }
+            else
+            {
+                new Message("Erreur", "Dossier d'installation de Fortnite invalide.", 110, 350).Show();
             }
         }
 

@@ -9,7 +9,7 @@
         mc:Ignorable="d"
         Title="Message" Height="100" Width="350" Background="#FF9C00FF" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid>
-        <Button Content="Ok" Margin="304,0,0,10" VerticalAlignment="Bottom" Height="32" Click="Button_Click"/>
+        <Button Content="Ok" Margin="0,0,10,10" VerticalAlignment="Bottom" Height="32" Click="Button_Click" HorizontalAlignment="Right"/>
         <Label x:Name="Message_Label" Content="" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
 
     </Grid>

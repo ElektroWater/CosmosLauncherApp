@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\NathanGui\source\repos\CosmosLauncherApp\obj\Release\net6.0-windows\
+C:\Users\NathanGui\Documents\GitHub\CosmosLauncherApp\obj\Release\net6.0-windows\
 CosmosLauncherApp
 none
 false
 TRACE;RELEASE;NET;NET6_0;NETCOREAPP
-C:\Users\NathanGui\source\repos\CosmosLauncherApp\App.xaml
-11407045341
-1-1667698779
-13-1056670250
-210-1383253914
-MainWindow.xaml;
+C:\Users\NathanGui\Documents\GitHub\CosmosLauncherApp\App.xaml
+4-297594761
+11562051256
+121978618148
+207-1881067460
+MainWindow.xaml;Message.xaml;Settings.xaml;Update.xaml;
 
-False
+True
 
