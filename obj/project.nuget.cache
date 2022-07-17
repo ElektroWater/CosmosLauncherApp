@@ -1,16 +1,16 @@
 {
   "version": 2,
-  "dgSpecHash": "Y+QNZS/tUYZGoQ6oR7Jr+tusvKeTyzv78W/hgs96ofCDb1jgmQsZ1iLEP6DJhi1SMHPyPGkT+Q5q2PW/C7OInw==",
+  "dgSpecHash": "/OV5uHJHrA9Mw6YM/SFt9HyoUxqw3/elSLbc9neOK8mDlZI8H0f5oxz97MItGU5ORWVEzZR/8JMMuxZJ2mBrFQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Marsu\\Downloads\\CosmosLauncherApp-main (1)\\CosmosLauncherApp\\CosmosLauncherApp.csproj",
+  "projectFilePath": "C:\\Users\\NathanGui\\Documents\\GitHub\\CosmosLauncherApp\\CosmosLauncherApp.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Marsu\\.nuget\\packages\\discordrichpresence\\1.0.175\\discordrichpresence.1.0.175.nupkg.sha512",
-    "C:\\Users\\Marsu\\.nuget\\packages\\microsoft.netcore.platforms\\2.0.0\\microsoft.netcore.platforms.2.0.0.nupkg.sha512",
-    "C:\\Users\\Marsu\\.nuget\\packages\\microsoft.win32.registry\\4.5.0\\microsoft.win32.registry.4.5.0.nupkg.sha512",
-    "C:\\Users\\Marsu\\.nuget\\packages\\modernwpfui\\0.9.6\\modernwpfui.0.9.6.nupkg.sha512",
-    "C:\\Users\\Marsu\\.nuget\\packages\\newtonsoft.json\\12.0.2\\newtonsoft.json.12.0.2.nupkg.sha512",
-    "C:\\Users\\Marsu\\.nuget\\packages\\system.security.accesscontrol\\4.5.0\\system.security.accesscontrol.4.5.0.nupkg.sha512",
-    "C:\\Users\\Marsu\\.nuget\\packages\\system.security.principal.windows\\4.5.0\\system.security.principal.windows.4.5.0.nupkg.sha512"
+    "C:\\Users\\NathanGui\\.nuget\\packages\\discordrichpresence\\1.0.175\\discordrichpresence.1.0.175.nupkg.sha512",
+    "C:\\Users\\NathanGui\\.nuget\\packages\\microsoft.netcore.platforms\\2.0.0\\microsoft.netcore.platforms.2.0.0.nupkg.sha512",
+    "C:\\Users\\NathanGui\\.nuget\\packages\\microsoft.win32.registry\\4.5.0\\microsoft.win32.registry.4.5.0.nupkg.sha512",
+    "C:\\Users\\NathanGui\\.nuget\\packages\\modernwpfui\\0.9.6\\modernwpfui.0.9.6.nupkg.sha512",
+    "C:\\Users\\NathanGui\\.nuget\\packages\\newtonsoft.json\\12.0.2\\newtonsoft.json.12.0.2.nupkg.sha512",
+    "C:\\Users\\NathanGui\\.nuget\\packages\\system.security.accesscontrol\\4.5.0\\system.security.accesscontrol.4.5.0.nupkg.sha512",
+    "C:\\Users\\NathanGui\\.nuget\\packages\\system.security.principal.windows\\4.5.0\\system.security.principal.windows.4.5.0.nupkg.sha512"
   ],
   "logs": []
 }
