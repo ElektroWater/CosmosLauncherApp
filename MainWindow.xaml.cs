@@ -17,13 +17,10 @@ namespace CosmosLauncherApp
 
     public partial class MainWindow : Window
     {
-        string version = "1.0.0";
-        int id;
         public MainWindow()
         {
             InitializeComponent();
             Folder_Label.Text = Properties.Settings.Default["Fortnite_Path"].ToString();
-            Update(false);
             Discord();
         }
 
@@ -39,6 +36,45 @@ namespace CosmosLauncherApp
             string StringMemoryClientDLLPatchImportant = Properties.Settings.Default["Fortnite_Path"] + "/FortniteGame/Binaries/Win64/api-ClientDLL-x64.dll";
             string FortniteLauncherImportant = Properties.Settings.Default["Fortnite_Path"] + "/FortniteGame/Binaries/Win64/CosmosLauncher.exe";
 
+            DownloadFiles(StringClientBypass, StringMemoryLeakFixerPatch, StringMemoryClientDLLPatchImportant, FortniteLauncherImportant);
+
+            if (File.Exists(Properties.Settings.Default["Fortnite_Path"] + "/FortniteGame/Binaries/Win64/FortniteLauncher.exe"))
+            {
+                if (Properties.Settings.Default["Username"] != "")
+                {
+                    var Fortnite_Path = Folder_Label.Text;
+                    Process Fortnite = new Process()
+                    {
+                        StartInfo =
+                        {
+                            FileName = Fortnite_Path + "/FortniteGame/Binaries/Win64/FortniteLauncher.exe",
+                            Arguments =  $"{Properties.Settings.Default["Argument"]} -NOSSLPINNING -skippatchcheck -epicportal -HTTP=WinINet -AUTH_LOGIN={Properties.Settings.Default["Username"]} -AUTH_PASSWORD=unused -AUTH_TYPE=epic",
+                            CreateNoWindow = Properties.Settings.Default["Logs"].ToString() == "True",
+                            WorkingDirectory = Fortnite_Path + "/FortniteGame/Binaries/Win64/"
+                }
+                    };
+                    Fortnite.Start();
+                    System.Threading.Thread.Sleep(12000);
+                    var processes = Process.GetProcessesByName("FortniteClient-Win64-Shipping");
+                    foreach (var process in processes)
+                    {
+                        //Injector.Injector.InjectDll(process.Id, StringClientBypass);
+                        new InjectMessagexaml(process.Id, StringMemoryLeakFixerPatch, StringMemoryClientDLLPatchImportant).Show();
+
+                    }
+                }
+                else
+                {
+                    new Message("Erreur", "Veuillez saisir un nom d'utilisateur dans les paramètres.", 110, 360).Show();
+                }
+            }
+            else
+            {
+                new Message("Erreur", "Dossier d'installation de Fortnite invalide.", 110, 350).Show();
+            }
+        }
+        private void DownloadFiles(string StringClientBypass, string StringMemoryLeakFixerPatch, string StringMemoryClientDLLPatchImportant, string FortniteLauncherImportant)
+        {
             if (File.Exists(Properties.Settings.Default["Fortnite_Path"] + "/FortniteGame/Binaries/Win64/FortniteLauncher.exe"))
             {
                 if (!File.Exists(FortniteLauncherImportant))
@@ -164,42 +200,6 @@ namespace CosmosLauncherApp
                     }
                 }
             }
-
-            if (File.Exists(Properties.Settings.Default["Fortnite_Path"] + "/FortniteGame/Binaries/Win64/FortniteLauncher.exe"))
-            {
-                if (Properties.Settings.Default["Username"] != "")
-                {
-                    var Fortnite_Path = Folder_Label.Text;
-                    Process Fortnite = new Process()
-                    {
-                        StartInfo =
-                        {
-                            FileName = Fortnite_Path + "/FortniteGame/Binaries/Win64/FortniteLauncher.exe",
-                            Arguments =  $"{Properties.Settings.Default["Argument"]} -NOSSLPINNING -skippatchcheck -epicportal -skippatchcheck -NoCodeGuards -HTTP=WinINet -AUTH_LOGIN={Properties.Settings.Default["Username"]} -AUTH_PASSWORD=unused -AUTH_TYPE=epic",
-                            CreateNoWindow = Properties.Settings.Default["Logs"].ToString() == "True",
-                            WorkingDirectory = Fortnite_Path + "/FortniteGame/Binaries/Win64/"
-                }
-                    };
-                    Fortnite.Start();
-                    id = Fortnite.Id;
-                    System.Threading.Thread.Sleep(12000);
-                    var processes = Process.GetProcessesByName("FortniteClient-Win64-Shipping");
-                    foreach (var process in processes)
-                    {
-                        //Injector.Injector.InjectDll(process.Id, StringClientBypass);
-                        new InjectMessagexaml(process.Id, StringMemoryLeakFixerPatch, StringMemoryClientDLLPatchImportant).Show();
-
-                    }
-                }
-                else
-                {
-                    new Message("Erreur", "Veuillez saisir un nom d'utilisateur dans les paramètres.", 110, 360).Show();
-                }
-            }
-            else
-            {
-                new Message("Erreur", "Dossier d'installation de Fortnite invalide.", 110, 350).Show();
-            }
         }
 
         private void Folder_btn_Click(object sender, RoutedEventArgs e)
@@ -217,27 +217,6 @@ namespace CosmosLauncherApp
                 else
                 {
                     new Message("Erreur", "Dossier d'installation de Fortnite invalide.", 110, 350).Show();
-                }
-            }
-        }
-
-        private void Update_btn_Click(object sender, RoutedEventArgs e)
-        {
-            Update(true);
-        }
-        private void Update(bool message)
-        {
-            WebClient webClient = new WebClient();
-            if (!webClient.DownloadString("https://pastebin.com/raw/0pJiM8gX").Contains(version))
-            {
-                var Update_Fenetre = new Update();
-                Update_Fenetre.Show();
-            }
-            else
-            {
-                if (message)
-                {
-                    new Message("Mise à jour", "Vous êtes à jour", 110, 350).Show();
                 }
             }
         }

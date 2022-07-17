@@ -15,12 +15,9 @@
         <Button x:Name="Launch_btn" Content="Lancer Cosmos" Margin="0,0,0,15" VerticalAlignment="Bottom" Click="Launch_btn_Click" HorizontalAlignment="Center" Height="32"/>
         <TextBox x:Name="Folder_Label" Margin="55,0,87,55" TextWrapping="Wrap" VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Visible" IsReadOnly="True" Height="32" VerticalAlignment="Bottom"/>
         <Button x:Name="Folder_btn" Content="..." Margin="0,0,55,55" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="27" Click="Folder_btn_Click" Height="32"/>
-
-        <Button Content="Vérifier les mises à jours" Margin="55,0,0,15" VerticalAlignment="Bottom" Click="Update_btn_Click" Height="32"/>
-        <Button x:Name="Discord_btn" Content="Discord" Margin="0,0,146,15" VerticalAlignment="Bottom" Click="Discord_btn_Click" Height="32" HorizontalAlignment="Right" Width="65"/>
+        <Button x:Name="Discord_btn" Content="Discord" Margin="0,0,610,15" VerticalAlignment="Bottom" Click="Discord_btn_Click" Height="32" HorizontalAlignment="Right" Width="65"/>
         <Label Content="Version 1.0.0" Margin="0,0,4,2" FontSize="10" HorizontalAlignment="Right" Width="56" Height="13" VerticalAlignment="Bottom"/>
-        <Button x:Name="Help_btn" Content="Tutoriel" Margin="225,0,0,15" VerticalAlignment="Bottom" Click="Help_btn_Click" Height="32"/>
+        <Button x:Name="Help_btn" Content="Tutoriel" Margin="55,0,0,15" VerticalAlignment="Bottom" Click="Help_btn_Click" Height="32"/>
         <Button x:Name="Settings_btn" Content="Paramètres" Margin="0,0,54,15" VerticalAlignment="Bottom" Click="Settings_btn_Click" HorizontalAlignment="Right" Width="87" Height="32"/>
-        <ProgressBar x:Name="ProgressBar_Download" Margin="55,0,55,92" VerticalAlignment="Bottom" Height="10"/>
     </Grid>
 </Window>

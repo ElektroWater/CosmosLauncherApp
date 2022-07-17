@@ -297,7 +297,6 @@ C:\Users\NathanGui\Documents\GitHub\CosmosLauncherApp\obj\Release\net6.0-windows
 C:\Users\NathanGui\Documents\GitHub\CosmosLauncherApp\obj\Release\net6.0-windows\MainWindow.g.cs
 C:\Users\NathanGui\Documents\GitHub\CosmosLauncherApp\obj\Release\net6.0-windows\Message.g.cs
 C:\Users\NathanGui\Documents\GitHub\CosmosLauncherApp\obj\Release\net6.0-windows\Settings.g.cs
-C:\Users\NathanGui\Documents\GitHub\CosmosLauncherApp\obj\Release\net6.0-windows\Update.g.cs
 C:\Users\NathanGui\Documents\GitHub\CosmosLauncherApp\obj\Release\net6.0-windows\App.g.cs
 C:\Users\NathanGui\Documents\GitHub\CosmosLauncherApp\obj\Release\net6.0-windows\CosmosLauncherApp_Content.g.cs
 C:\Users\NathanGui\Documents\GitHub\CosmosLauncherApp\obj\Release\net6.0-windows\CosmosLauncherApp_MarkupCompile.cache
@@ -306,7 +305,6 @@ C:\Users\NathanGui\Documents\GitHub\CosmosLauncherApp\obj\Release\net6.0-windows
 C:\Users\NathanGui\Documents\GitHub\CosmosLauncherApp\obj\Release\net6.0-windows\MainWindow.baml
 C:\Users\NathanGui\Documents\GitHub\CosmosLauncherApp\obj\Release\net6.0-windows\Message.baml
 C:\Users\NathanGui\Documents\GitHub\CosmosLauncherApp\obj\Release\net6.0-windows\Settings.baml
-C:\Users\NathanGui\Documents\GitHub\CosmosLauncherApp\obj\Release\net6.0-windows\Update.baml
 C:\Users\NathanGui\Documents\GitHub\CosmosLauncherApp\obj\Release\net6.0-windows\CosmosLauncherApp.g.resources
 C:\Users\NathanGui\Documents\GitHub\CosmosLauncherApp\obj\Release\net6.0-windows\CosmosLauncherApp.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\NathanGui\Documents\GitHub\CosmosLauncherApp\obj\Release\net6.0-windows\CosmosLauncherApp.AssemblyInfoInputs.cache
