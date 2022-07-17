@@ -479,3 +479,5 @@ C:\Users\Marsu\Downloads\CosmosLauncherApp-main (1)\CosmosLauncherApp\obj\Releas
 C:\Users\Marsu\Downloads\CosmosLauncherApp-main (1)\CosmosLauncherApp\obj\Release\net6.0-windows\CosmosLauncherApp.pdb
 C:\Users\Marsu\Downloads\CosmosLauncherApp-main (1)\CosmosLauncherApp\obj\Release\net6.0-windows\CosmosLauncherApp.genruntimeconfig.cache
 C:\Users\Marsu\Downloads\CosmosLauncherApp-main (1)\CosmosLauncherApp\obj\Release\net6.0-windows\ref\CosmosLauncherApp.dll
+C:\Users\NathanGui\Documents\GitHub\CosmosLauncherApp\obj\Release\net6.0-windows\InjectMessagexaml.g.cs
+C:\Users\NathanGui\Documents\GitHub\CosmosLauncherApp\obj\Release\net6.0-windows\InjectMessagexaml.baml

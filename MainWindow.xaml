@@ -21,5 +21,6 @@
         <Label Content="Version 1.0.0" Margin="0,0,4,2" FontSize="10" HorizontalAlignment="Right" Width="56" Height="13" VerticalAlignment="Bottom"/>
         <Button x:Name="Help_btn" Content="Tutoriel" Margin="225,0,0,15" VerticalAlignment="Bottom" Click="Help_btn_Click" Height="32"/>
         <Button x:Name="Settings_btn" Content="Paramètres" Margin="0,0,54,15" VerticalAlignment="Bottom" Click="Settings_btn_Click" HorizontalAlignment="Right" Width="87" Height="32"/>
+        <ProgressBar x:Name="ProgressBar_Download" Margin="55,0,55,92" VerticalAlignment="Bottom" Height="10"/>
     </Grid>
 </Window>

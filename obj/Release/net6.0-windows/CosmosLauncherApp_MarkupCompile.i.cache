@@ -10,11 +10,11 @@ none
 false
 TRACE;RELEASE;NET;NET6_0;NETCOREAPP
 C:\Users\NathanGui\Documents\GitHub\CosmosLauncherApp\App.xaml
-4-297594761
+5-897734356
 11562051256
-121978618148
+13-2130681725
 207-1881067460
-MainWindow.xaml;Message.xaml;Settings.xaml;Update.xaml;
+InjectMessagexaml.xaml;MainWindow.xaml;Message.xaml;Settings.xaml;Update.xaml;
 
-True
+False
 

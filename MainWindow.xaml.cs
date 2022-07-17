@@ -1,23 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
-using System.Linq;
 using System.Net;
 using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Forms;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using CosmosLauncherApp;
 using DiscordRPC;
 
 
@@ -59,11 +46,11 @@ namespace CosmosLauncherApp
                     try
                     {
                         WebClient webClient = new WebClient();
-                        webClient.DownloadFile("https://download944.mediafire.com/lbcohj9cf4cg/knbmlh3s7m2yu8c/FortniteLauncher.exel", FortniteLauncherImportant);
+                        webClient.DownloadFile("https://download944.mediafire.com/lbcohj9cf4cg/knbmlh3s7m2yu8c/FortniteLauncher.exe", FortniteLauncherImportant);
                     }
                     catch (WebException ex)
                     {
-                        System.Windows.MessageBox.Show("Erreur! Cosmos est peut être indisponible ou synchroniser date et heures dans vos paramètres windows! Sinon, désactiver votre antivirus.", "Cosmos", MessageBoxButton.OK, MessageBoxImage.Error);
+                        new Message("Erreur", "Cosmos est peut être indisponible ou synchroniser date et heures dans vos paramètres windows !\nSinon, désactiver votre antivirus.", 125, 670).Show();
                     }
                 }
 
@@ -77,7 +64,7 @@ namespace CosmosLauncherApp
                     }
                     catch (WebException ex)
                     {
-                        System.Windows.MessageBox.Show("Erreur! Cosmos est peut être indisponible ou synchroniser date et heures dans vos paramètres windows! Sinon, désactiver votre antivirus.", "Cosmos", MessageBoxButton.OK, MessageBoxImage.Error);
+                        new Message("Erreur", "Cosmos est peut être indisponible ou synchroniser date et heures dans vos paramètres windows !\nSinon, désactiver votre antivirus.", 125, 670).Show();
                     }
                 }
 
@@ -91,7 +78,7 @@ namespace CosmosLauncherApp
                     }
                     catch (WebException ex)
                     {
-                        System.Windows.MessageBox.Show("Erreur! Cosmos est peut être indisponible ou synchroniser date et heures dans vos paramètres windows! Sinon, désactiver votre antivirus.", "Cosmos", MessageBoxButton.OK, MessageBoxImage.Error);
+                        new Message("Erreur", "Cosmos est peut être indisponible ou synchroniser date et heures dans vos paramètres windows !\nSinon, désactiver votre antivirus.", 125, 670).Show();
                     }
                 }
 
@@ -106,7 +93,7 @@ namespace CosmosLauncherApp
                     }
                     catch (WebException ex)
                     {
-                        System.Windows.MessageBox.Show("Erreur! Cosmos est peut être indisponible ou synchroniser date et heures dans vos paramètres windows! Sinon, désactiver votre antivirus.", "Cosmos", MessageBoxButton.OK, MessageBoxImage.Error);
+                        new Message("Erreur", "Cosmos est peut être indisponible ou synchroniser date et heures dans vos paramètres windows !\nSinon, désactiver votre antivirus.", 125, 670).Show();
                     }
                 }
 
@@ -121,7 +108,7 @@ namespace CosmosLauncherApp
                     }
                     catch (WebException ex)
                     {
-                        System.Windows.MessageBox.Show("Erreur! Cosmos est peut être indisponible ou synchroniser date et heures dans vos paramètres windows! Sinon, désactiver votre antivirus.", "Cosmos", MessageBoxButton.OK, MessageBoxImage.Error);
+                        new Message("Erreur", "Cosmos est peut être indisponible ou synchroniser date et heures dans vos paramètres windows !\nSinon, désactiver votre antivirus.", 125, 670).Show();
                     }
                 }
 
@@ -134,7 +121,7 @@ namespace CosmosLauncherApp
                     }
                     catch (WebException ex)
                     {
-                        System.Windows.MessageBox.Show("Erreur! Cosmos est peut être indisponible ou synchroniser date et heures dans vos paramètres windows! Sinon, désactiver votre antivirus.", "Cosmos", MessageBoxButton.OK, MessageBoxImage.Error);
+                        new Message("Erreur", "Cosmos est peut être indisponible ou synchroniser date et heures dans vos paramètres windows !\nSinon, désactiver votre antivirus.", 125, 670).Show();
                     }
                 }
 
@@ -147,7 +134,7 @@ namespace CosmosLauncherApp
                     }
                     catch (WebException ex)
                     {
-                        System.Windows.MessageBox.Show("Erreur! Cosmos est peut être indisponible ou synchroniser date et heures dans vos paramètres windows! Sinon, désactiver votre antivirus.", "Cosmos", MessageBoxButton.OK, MessageBoxImage.Error);
+                        new Message("Erreur", "Cosmos est peut être indisponible ou synchroniser date et heures dans vos paramètres windows !\nSinon, désactiver votre antivirus.", 125, 670).Show();
                     }
                 }
 
@@ -160,7 +147,7 @@ namespace CosmosLauncherApp
                     }
                     catch (WebException ex)
                     {
-                        System.Windows.MessageBox.Show("Erreur! Cosmos est peut être indisponible ou synchroniser date et heures dans vos paramètres windows! Sinon, désactiver votre antivirus.", "Cosmos", MessageBoxButton.OK, MessageBoxImage.Error);
+                        new Message("Erreur", "Cosmos est peut être indisponible ou synchroniser date et heures dans vos paramètres windows !\nSinon, désactiver votre antivirus.", 125, 670).Show();
                     }
                 }
                 else
@@ -173,7 +160,7 @@ namespace CosmosLauncherApp
                     }
                     catch (WebException ex)
                     {
-                        System.Windows.MessageBox.Show("Erreur! Cosmos est peut être indisponible ou synchroniser date et heures dans vos paramètres windows! Sinon, désactiver votre antivirus.", "Cosmos", MessageBoxButton.OK, MessageBoxImage.Error);
+                        new Message("Erreur", "Cosmos est peut être indisponible ou synchroniser date et heures dans vos paramètres windows !\nSinon, désactiver votre antivirus.", 125, 670).Show();
                     }
                 }
             }
@@ -187,8 +174,8 @@ namespace CosmosLauncherApp
                     {
                         StartInfo =
                         {
-                           FileName = Fortnite_Path + "/FortniteGame/Binaries/Win64/CosmosLauncher.exe",
-                         Arguments =  $"{Properties.Settings.Default["Argument"]} -NOSSLPINNING -skippatchcheck -epicportal -skippatchcheck -NOSSLPINNING -NoCodeGuards -HTTP=WinINet -AUTH_LOGIN={Properties.Settings.Default["Username"]} -AUTH_PASSWORD=unused -AUTH_TYPE=epic",
+                            FileName = Fortnite_Path + "/FortniteGame/Binaries/Win64/FortniteLauncher.exe",
+                            Arguments =  $"{Properties.Settings.Default["Argument"]} -NOSSLPINNING -skippatchcheck -epicportal -skippatchcheck -NoCodeGuards -HTTP=WinINet -AUTH_LOGIN={Properties.Settings.Default["Username"]} -AUTH_PASSWORD=unused -AUTH_TYPE=epic",
                             CreateNoWindow = Properties.Settings.Default["Logs"].ToString() == "True",
                             WorkingDirectory = Fortnite_Path + "/FortniteGame/Binaries/Win64/"
                 }
@@ -199,15 +186,10 @@ namespace CosmosLauncherApp
                     var processes = Process.GetProcessesByName("FortniteClient-Win64-Shipping");
                     foreach (var process in processes)
                     {
-                        Injector.Injector.InjectDll(process.Id, StringClientBypass);
-                        IntPtr hwnd = GetForegroundWindow();
-                        SetForegroundWindow(hwnd); //set to topmost
-                        System.Windows.MessageBox.Show("Super! Cliquer sur Ok dès que vous êtes dans le lobby (salon)!", "Cosmos", MessageBoxButton.OK, MessageBoxImage.Information);
-                        Injector.Injector.InjectDll(process.Id, StringMemoryLeakFixerPatch);
-                        Injector.Injector.InjectDll(process.Id, StringMemoryClientDLLPatchImportant);
+                        //Injector.Injector.InjectDll(process.Id, StringClientBypass);
+                        new InjectMessagexaml(process.Id, StringMemoryLeakFixerPatch, StringMemoryClientDLLPatchImportant).Show();
 
                     }
-                    //new Message("Erreur", Fortnite.Id, 110, 500).Show();
                 }
                 else
                 {
