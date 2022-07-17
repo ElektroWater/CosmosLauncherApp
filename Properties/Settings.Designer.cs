@@ -82,5 +82,17 @@ namespace CosmosLauncherApp.Properties {
                 this["Logs"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool Logs_Server {
+            get {
+                return ((bool)(this["Logs_Server"]));
+            }
+            set {
+                this["Logs_Server"] = value;
+            }
+        }
     }
 }

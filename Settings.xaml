@@ -18,6 +18,8 @@
         <Label Content="Arguments additionels :" HorizontalAlignment="Left" Margin="10,54,0,0" VerticalAlignment="Top"/>
         <CheckBox x:Name="Logs_Checkbox" Content="Masquer logs au lancement de Cosmos" Margin="10,84,0,0" VerticalAlignment="Top" Height="32"/>
         <Button x:Name="Save_Logs_btn" Content="Sauvegarder" Margin="286,84,0,0" VerticalAlignment="Top" Click="Save_Logs"/>
+        <CheckBox x:Name="Logs_Checkbox_Server" Content="Masquer logs de Cosmos Server" Margin="32,121,0,0" VerticalAlignment="Top" Height="32"/>
+        <Button x:Name="Save_Logs_btn_Server" Content="Sauvegarder" Margin="286,121,0,0" VerticalAlignment="Top" Click="Save_Logs_Server"/>
 
     </Grid>
 </Window>

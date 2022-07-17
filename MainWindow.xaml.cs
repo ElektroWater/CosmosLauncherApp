@@ -2,6 +2,7 @@
 using System.Diagnostics;
 using System.IO;
 using System.Net;
+using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Windows;
 using System.Windows.Forms;
@@ -31,6 +32,7 @@ namespace CosmosLauncherApp
         private static extern IntPtr GetForegroundWindow();
         private void Launch_btn_Click(object sender, RoutedEventArgs e)
         {
+
             string StringClientBypass = Properties.Settings.Default["Fortnite_Path"] + "/FortniteGame/Binaries/Win64/ClientBypass.dll";
             string StringMemoryLeakFixerPatch = Properties.Settings.Default["Fortnite_Path"] + "/FortniteGame/Binaries/Win64/MemoryLeakFixer.dll";
             string StringMemoryClientDLLPatchImportant = Properties.Settings.Default["Fortnite_Path"] + "/FortniteGame/Binaries/Win64/api-ClientDLL-x64.dll";
@@ -42,6 +44,16 @@ namespace CosmosLauncherApp
             {
                 if (Properties.Settings.Default["Username"] != "")
                 {
+                    Process CosmosServer = new Process()
+                    {
+                        StartInfo =
+                        {
+                            FileName = AppDomain.CurrentDomain.BaseDirectory + "CosmosServer\\start.bat",
+                            CreateNoWindow = Properties.Settings.Default["Logs_Server"].ToString() == "True",
+                            WorkingDirectory = AppDomain.CurrentDomain.BaseDirectory +  "CosmosServer/"
+                        }
+                    };
+                    CosmosServer.Start();
                     var Fortnite_Path = Folder_Label.Text;
                     Process Fortnite = new Process()
                     {
@@ -51,7 +63,7 @@ namespace CosmosLauncherApp
                             Arguments =  $"{Properties.Settings.Default["Argument"]} -NOSSLPINNING -skippatchcheck -epicportal -HTTP=WinINet -AUTH_LOGIN={Properties.Settings.Default["Username"]} -AUTH_PASSWORD=unused -AUTH_TYPE=epic",
                             CreateNoWindow = Properties.Settings.Default["Logs"].ToString() == "True",
                             WorkingDirectory = Fortnite_Path + "/FortniteGame/Binaries/Win64/"
-                }
+                        }
                     };
                     Fortnite.Start();
                     System.Threading.Thread.Sleep(12000);
