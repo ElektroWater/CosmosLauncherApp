@@ -30,10 +30,10 @@
     "battlePassXPFriendBoost": 0
   },
   "Season7": {
-    "battlePassPurchased": false,
-    "battlePassTier": 1,
-    "battlePassXPBoost": 0,
-    "battlePassXPFriendBoost": 0
+    "battlePassPurchased": true,
+    "battlePassTier": 90,
+    "battlePassXPBoost": 110,
+    "battlePassXPFriendBoost": 40
   },
   "Season8": {
     "battlePassPurchased": false,
