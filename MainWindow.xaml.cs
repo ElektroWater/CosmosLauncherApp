@@ -18,11 +18,14 @@ namespace CosmosLauncherApp
 
     public partial class MainWindow : Window
     {
+        string version = "1.0";
         public MainWindow()
         {
+            Update();
             InitializeComponent();
             Folder_Label.Text = Properties.Settings.Default["Fortnite_Path"].ToString();
             Discord();
+
         }
 
         [DllImport("user32.dll")]
@@ -59,7 +62,7 @@ namespace CosmosLauncherApp
                     {
                         StartInfo =
                         {
-                            FileName = Fortnite_Path + "/FortniteGame/Binaries/Win64/FortniteLauncher.exe",
+                            FileName = Fortnite_Path + "/FortniteGame/Binaries/Win64/CosmosLauncher.exe",
                             Arguments =  $"{Properties.Settings.Default["Argument"]} -NOSSLPINNING -skippatchcheck -epicportal -HTTP=WinINet -AUTH_LOGIN={Properties.Settings.Default["Username"]} -AUTH_PASSWORD=unused -AUTH_TYPE=epic",
                             CreateNoWindow = Properties.Settings.Default["Logs"].ToString() == "True",
                             WorkingDirectory = Fortnite_Path + "/FortniteGame/Binaries/Win64/"
@@ -70,7 +73,7 @@ namespace CosmosLauncherApp
                     var processes = Process.GetProcessesByName("FortniteClient-Win64-Shipping");
                     foreach (var process in processes)
                     {
-                        //Injector.Injector.InjectDll(process.Id, StringClientBypass);
+                        Injector.Injector.InjectDll(process.Id, StringClientBypass);
                         new InjectMessagexaml(process.Id, StringMemoryLeakFixerPatch, StringMemoryClientDLLPatchImportant).Show();
 
                     }
@@ -165,7 +168,7 @@ namespace CosmosLauncherApp
                     try
                     {
                         WebClient webClient = new WebClient();
-                        webClient.DownloadFile("https://cosmosfn.xyz/CosmosManager/ClientBypass.dll", StringClientBypass);
+                        webClient.DownloadFile("https://cosmosfn.xyz/CosmosManager/ClientBypass1.dll", StringClientBypass);
                     }
                     catch (WebException ex)
                     {
@@ -246,6 +249,16 @@ namespace CosmosLauncherApp
         private void Settings_btn_Click(object sender, RoutedEventArgs e)
         {
             new Settings().Show();
+        }
+        private void Update()
+        {
+            WebClient webClient = new WebClient();
+            if (!webClient.DownloadString("https://cosmosfn.xyz/CosmosManager/versioncheck.txt").Contains(version))
+            {
+                var Update_Fenetre = new Update();
+                Update_Fenetre.Show();
+                this.Close();
+            }
         }
         private void Discord()
         {
