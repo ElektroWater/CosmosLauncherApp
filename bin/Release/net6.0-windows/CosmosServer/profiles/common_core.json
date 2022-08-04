@@ -1,7 +1,7 @@
 {
   "created": "0001-01-01T00:00:00.000Z",
   "updated": "0001-01-01T00:00:00.000Z",
-  "rvn": 8,
+  "rvn": 20,
   "wipeNumber": 1,
   "accountId": "LawinServer",
   "profileId": "common_core",
@@ -34,7 +34,7 @@
       "attributes": {
         "platform": "EpicPC"
       },
-      "quantity": 100
+      "quantity": 12000
     },
     "Token:FounderChatUnlock": {
       "templateId": "Token:FounderChatUnlock",
@@ -2120,8 +2120,8 @@
       "intro_game_played": true,
       "import_friends_claimed": {},
       "mtx_purchase_history": {
-        "refundsUsed": 0,
-        "refundCredits": 3,
+        "refundsUsed": 2,
+        "refundCredits": 1,
         "purchases": [
           {
             "purchaseId": "AthenaCharacter:CID_009_Athena_Commando_M",
@@ -2142,7 +2142,8 @@
               "mtx_affiliate": "Lawin",
               "mtx_affiliate_id": "29063ead167541899959bbc9c439acc6"
             },
-            "gameContext": ""
+            "gameContext": "",
+            "refundDate": "2022-08-02T19:40:15.489Z"
           },
           {
             "purchaseId": "AthenaCharacter:CID_010_Athena_Commando_M",
@@ -2289,15 +2290,58 @@
               "mtx_affiliate": "Matteoki",
               "mtx_affiliate_id": "29063ead167541899959bbc9c439acc6"
             },
+            "gameContext": "",
+            "refundDate": "2022-08-02T19:40:33.662Z"
+          },
+          {
+            "purchaseId": "ce0cda4b-88d5-4e29-93da-dafb1b61d5b5",
+            "offerId": "v2:/ce0cda4b-88d5-4e29-93da-dafb1b61d5b5",
+            "purchaseDate": "2022-08-02T19:40:54.724Z",
+            "freeRefundEligible": false,
+            "fulfillments": [],
+            "lootResult": [
+              {
+                "itemType": "AthenaCharacter:CID_029_Athena_Commando_F_Halloween",
+                "itemGuid": "AthenaCharacter:CID_029_Athena_Commando_F_Halloween",
+                "itemProfile": "athena",
+                "quantity": 1
+              }
+            ],
+            "totalMtxPaid": 1500,
+            "metadata": {},
+            "gameContext": ""
+          },
+          {
+            "purchaseId": "5ecc8be5-e12e-4e53-8a79-50c4f61e67ff",
+            "offerId": "v2:/5ecc8be5-e12e-4e53-8a79-50c4f61e67ff",
+            "purchaseDate": "2022-08-04T15:40:36.964Z",
+            "freeRefundEligible": false,
+            "fulfillments": [],
+            "lootResult": [
+              {
+                "itemType": "AthenaCharacter:CID_175_Athena_Commando_M_Celestial",
+                "itemGuid": "AthenaCharacter:CID_175_Athena_Commando_M_Celestial",
+                "itemProfile": "athena",
+                "quantity": 1
+              },
+              {
+                "itemType": "AthenaBackpack:BID_138_Celestial",
+                "itemGuid": "AthenaBackpack:BID_138_Celestial",
+                "itemProfile": "athena",
+                "quantity": 1
+              }
+            ],
+            "totalMtxPaid": 1500,
+            "metadata": {},
             "gameContext": ""
           }
         ]
       },
       "undo_cooldowns": [],
-      "mtx_affiliate_set_time": "",
+      "mtx_affiliate_set_time": "2022-08-04T15:07:59.295Z",
       "inventory_limit_bonus": 0,
       "current_mtx_platform": "EpicPC",
-      "mtx_affiliate": "",
+      "mtx_affiliate": "elektrowater",
       "forced_intro_played": "Coconut",
       "weekly_purchases": {},
       "daily_purchases": {},
@@ -2312,5 +2356,5 @@
       "gift_history": {}
     }
   },
-  "commandRevision": 8
+  "commandRevision": 20
 }

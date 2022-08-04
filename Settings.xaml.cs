@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -21,45 +22,71 @@ namespace CosmosLauncherApp
     {
         public Settings()
         {
+            var lang = Properties.Settings.Default.language;
+            Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo(lang);
             InitializeComponent();
+            Lang();
             Username_Textbox.Text = Properties.Settings.Default["Username"].ToString();
             Argument_Textbox.Text = Properties.Settings.Default["Argument"].ToString();
             Logs_Checkbox.IsChecked = Properties.Settings.Default["Logs"].ToString() == "True";
             Logs_Checkbox_Server.IsChecked = Properties.Settings.Default["Logs_Server"].ToString() == "True";
         }
-        private void Save_Username_btn_Click(object sender, RoutedEventArgs e)
+
+        private void Lang()
         {
-            if (Username_Textbox.Text.Length == 0)
+            if (Properties.Settings.Default.language == "fr")
             {
-                new Message("Erreur","Vous devez saisir un nom d'utilisateur.", 110, 350).Show();
+                comboBox_Lang.SelectedIndex = 0;
             }
-            else
+            if (Properties.Settings.Default.language == "en-US")
             {
-                Properties.Settings.Default["Username"] = Username_Textbox.Text;
-                Properties.Settings.Default.Save();
-                new Message("Succès", "Nom d'utilisateur sauvegarder avec succès.", 110, 350).Show();
+                comboBox_Lang.SelectedIndex = 1;
             }
-            
+            if (Properties.Settings.Default.language == "de")
+            {
+                comboBox_Lang.SelectedIndex = 2;
+            }
         }
 
-        private void Save_Argument_Click(object sender, RoutedEventArgs e)
+        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            Properties.Settings.Default["Argument"] = Argument_Textbox.Text;
+            if(comboBox_Lang.SelectedIndex == 0)
+            {
+                Properties.Settings.Default.language = "fr";
+            }
+            if (comboBox_Lang.SelectedIndex == 1)
+            {
+                Properties.Settings.Default.language = "en-US";
+            }
+            if (comboBox_Lang.SelectedIndex == 2)
+            {
+                Properties.Settings.Default.language = "de";
+            }
             Properties.Settings.Default.Save();
-            new Message("Succès", "Arguments additionnels sauvegarder avec succès.", 110, 350).Show();
         }
 
-        private void Save_Logs(object sender, RoutedEventArgs e)
+        private void Logs_Checkbox_Click(object sender, RoutedEventArgs e)
         {
             Properties.Settings.Default["Logs"] = Logs_Checkbox.IsChecked;
             Properties.Settings.Default.Save();
-            new Message("Succès", "Le paramètre est sauvegarder avec succès.", 110, 350).Show();
         }
-        private void Save_Logs_Server(object sender, RoutedEventArgs e)
+
+        private void Logs_Checkbox_Server_Click(object sender, RoutedEventArgs e)
         {
             Properties.Settings.Default["Logs_Server"] = Logs_Checkbox_Server.IsChecked;
             Properties.Settings.Default.Save();
-            new Message("Succès", "Le paramètre est sauvegarder avec succès.", 110, 350).Show();
+        }
+
+        private void Username_Textbox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            Properties.Settings.Default["Username"] = Username_Textbox.Text;
+            Properties.Settings.Default.Save();
+        }
+
+        private void Argument_Textbox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            Properties.Settings.Default["Argument"] = Argument_Textbox.Text;
+            Properties.Settings.Default.Save();
         }
     }
 }

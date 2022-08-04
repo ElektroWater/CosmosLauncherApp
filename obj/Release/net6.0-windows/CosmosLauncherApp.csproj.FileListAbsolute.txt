@@ -481,3 +481,12 @@ C:\Users\NathanGui\Documents\GitHub\CosmosLauncherApp\obj\Release\net6.0-windows
 C:\Users\NathanGui\Documents\GitHub\CosmosLauncherApp\obj\Release\net6.0-windows\InjectMessagexaml.baml
 C:\Users\NathanGui\Documents\GitHub\CosmosLauncherApp\obj\Release\net6.0-windows\Update.g.cs
 C:\Users\NathanGui\Documents\GitHub\CosmosLauncherApp\obj\Release\net6.0-windows\Update.baml
+C:\Users\NathanGui\Documents\GitHub\CosmosLauncherApp\obj\Release\net6.0-windows\CosmosLauncherApp.Properties.Resource.resources
+C:\Users\NathanGui\Documents\GitHub\CosmosLauncherApp\obj\Release\net6.0-windows\CosmosLauncherApp.csproj.GenerateResource.cache
+C:\Users\NathanGui\Documents\GitHub\CosmosLauncherApp\bin\Release\net6.0-windows\en-US\CosmosLauncherApp.resources.dll
+C:\Users\NathanGui\Documents\GitHub\CosmosLauncherApp\obj\Release\net6.0-windows\CosmosLauncherApp.Langues.Lang.resources
+C:\Users\NathanGui\Documents\GitHub\CosmosLauncherApp\obj\Release\net6.0-windows\CosmosLauncherApp.Langues.Lang.en-US.resources
+C:\Users\NathanGui\Documents\GitHub\CosmosLauncherApp\obj\Release\net6.0-windows\en-US\CosmosLauncherApp.resources.dll
+C:\Users\NathanGui\Documents\GitHub\CosmosLauncherApp\bin\Release\net6.0-windows\de\CosmosLauncherApp.resources.dll
+C:\Users\NathanGui\Documents\GitHub\CosmosLauncherApp\obj\Release\net6.0-windows\CosmosLauncherApp.Langues.Lang.de.resources
+C:\Users\NathanGui\Documents\GitHub\CosmosLauncherApp\obj\Release\net6.0-windows\de\CosmosLauncherApp.resources.dll

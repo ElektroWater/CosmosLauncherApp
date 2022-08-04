@@ -4,6 +4,7 @@ using System.IO;
 using System.Net;
 using System.Reflection;
 using System.Runtime.InteropServices;
+using System.Threading;
 using System.Windows;
 using System.Windows.Forms;
 using DiscordRPC;
@@ -16,16 +17,73 @@ namespace CosmosLauncherApp
     /// </summary>
     /// 
 
+
     public partial class MainWindow : Window
     {
-        string version = "1.0";
+        string version = "2.0";
+        public Process CosmosServerProcess { get; set; }
         public MainWindow()
         {
+            var lang = Properties.Settings.Default.language;
+            Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo(lang);
             Update();
             InitializeComponent();
             Folder_Label.Text = Properties.Settings.Default["Fortnite_Path"].ToString();
             Discord();
+             //C:\Program Files\nodejs
+            Init_CosmosServer();
+            CosmosServerProcess.Start();
+            //CheckIfNodeInstalled();
+        }
+        private void CheckIfNodeInstalled()
+        {
+            if(!File.Exists("C:/Program Files/nodejs/node.exe"))
+            {
+                new Message("Erreur", "NodeJS doit être installer.", 110, 350).Show();
+                this.Close();
+            }
+        }
+        private void Init_CosmosServer()
+        {
+            Process CosmosServer = new Process()
+            {
+                StartInfo =
+                            {
+                                FileName = AppDomain.CurrentDomain.BaseDirectory + "CosmosServer\\start.bat",
+                                CreateNoWindow = Properties.Settings.Default["Logs_Server"].ToString() == "True",
+                                WorkingDirectory = AppDomain.CurrentDomain.BaseDirectory +  "CosmosServer/"
+                            }
+            };
+            CosmosServerProcess = CosmosServer;
+        }
 
+        private static void SupprimeProcess(string imageName)
+        {
+            Process.Start(new ProcessStartInfo
+            {
+                FileName = "taskkill",
+                Arguments = $"/im {imageName} /f /t",
+                CreateNoWindow = true,
+                UseShellExecute = false
+            }).WaitForExit();
+        }
+
+        protected virtual bool IsFileLocked(FileInfo file)
+        {
+            try
+            {
+                using (FileStream stream = file.Open(FileMode.Open, FileAccess.Read, FileShare.None))
+                {
+                    stream.Close();
+                }
+            }
+            catch (IOException)
+            {
+
+                return true;
+            }
+
+            return false;
         }
 
         [DllImport("user32.dll")]
@@ -35,11 +93,13 @@ namespace CosmosLauncherApp
         private static extern IntPtr GetForegroundWindow();
         private void Launch_btn_Click(object sender, RoutedEventArgs e)
         {
+            SupprimeProcess("FortniteClient-Win64-Shipping.exe");
+            SupprimeProcess("FortniteLauncher.exe");
 
-            string StringClientBypass = Properties.Settings.Default["Fortnite_Path"] + "/FortniteGame/Binaries/Win64/ClientBypass.dll";
+            string StringClientBypass = Properties.Settings.Default["Fortnite_Path"] + "/FortniteGame/Binaries/Win64/ClientBypassV5.dll";
             string StringMemoryLeakFixerPatch = Properties.Settings.Default["Fortnite_Path"] + "/FortniteGame/Binaries/Win64/MemoryLeakFixer.dll";
             string StringMemoryClientDLLPatchImportant = Properties.Settings.Default["Fortnite_Path"] + "/FortniteGame/Binaries/Win64/api-ClientDLL-x64.dll";
-            string FortniteLauncherImportant = Properties.Settings.Default["Fortnite_Path"] + "/FortniteGame/Binaries/Win64/CosmosLauncher.exe";
+            string FortniteLauncherImportant = Properties.Settings.Default["Fortnite_Path"] + "/FortniteGame/Binaries/Win64/FortniteLauncher.exe";
 
             DownloadFiles(StringClientBypass, StringMemoryLeakFixerPatch, StringMemoryClientDLLPatchImportant, FortniteLauncherImportant);
 
@@ -47,22 +107,15 @@ namespace CosmosLauncherApp
             {
                 if (Properties.Settings.Default["Username"] != "")
                 {
-                    Process CosmosServer = new Process()
-                    {
-                        StartInfo =
-                        {
-                            FileName = AppDomain.CurrentDomain.BaseDirectory + "CosmosServer\\start.bat",
-                            CreateNoWindow = Properties.Settings.Default["Logs_Server"].ToString() == "True",
-                            WorkingDirectory = AppDomain.CurrentDomain.BaseDirectory +  "CosmosServer/"
-                        }
-                    };
-                    CosmosServer.Start();
+
+                    
+
                     var Fortnite_Path = Folder_Label.Text;
                     Process Fortnite = new Process()
                     {
                         StartInfo =
                         {
-                            FileName = Fortnite_Path + "/FortniteGame/Binaries/Win64/CosmosLauncher.exe",
+                            FileName = Fortnite_Path + "/FortniteGame/Binaries/Win64/FortniteLauncher.exe",
                             Arguments =  $"{Properties.Settings.Default["Argument"]} -NOSSLPINNING -skippatchcheck -epicportal -HTTP=WinINet -AUTH_LOGIN={Properties.Settings.Default["Username"]} -AUTH_PASSWORD=unused -AUTH_TYPE=epic",
                             CreateNoWindow = Properties.Settings.Default["Logs"].ToString() == "True",
                             WorkingDirectory = Fortnite_Path + "/FortniteGame/Binaries/Win64/"
@@ -80,28 +133,62 @@ namespace CosmosLauncherApp
                 }
                 else
                 {
-                    new Message("Erreur", "Veuillez saisir un nom d'utilisateur dans les paramètres.", 110, 360).Show();
+                    if (Properties.Settings.Default["Fortnite_Path"] == "fr")
+                    {
+                        new Message("Erreur", "Veuillez saisir un nom d'utilisateur dans les paramètres.", 110, 360).Show();
+                    }
+                    if (Properties.Settings.Default["Fortnite_Path"] == "en-US")
+                    {
+                        new Message("Error", "Please enter a user name in the settings.", 110, 360).Show();
+                    }
+                    if (Properties.Settings.Default["Fortnite_Path"] == "de")
+                    {
+                        new Message("Fehler", "Bitte geben Sie in den Einstellungen einen Benutzernamen ein.", 110, 360).Show();
+                    }
                 }
             }
             else
             {
-                new Message("Erreur", "Dossier d'installation de Fortnite invalide.", 110, 350).Show();
+                if (Properties.Settings.Default["Fortnite_Path"] == "fr")
+                {
+                    new Message("Erreur", "Dossier d'installation de Fortnite invalide.", 110, 350).Show();
+                }
+                if (Properties.Settings.Default["Fortnite_Path"] == "en-US")
+                {
+                    new Message("Error", "Invalid Fortnite installation folder.", 110, 350).Show();
+                }
+                if (Properties.Settings.Default["Fortnite_Path"] == "de")
+                {
+                    new Message("Fehler", "Ungültiger Installationsordner von Fortnite.", 110, 350).Show();
+                }
             }
         }
         private void DownloadFiles(string StringClientBypass, string StringMemoryLeakFixerPatch, string StringMemoryClientDLLPatchImportant, string FortniteLauncherImportant)
         {
             if (File.Exists(Properties.Settings.Default["Fortnite_Path"] + "/FortniteGame/Binaries/Win64/FortniteLauncher.exe"))
             {
-                if (!File.Exists(FortniteLauncherImportant))
+                if (!File.Exists(StringClientBypass))
                 {
+                    File.Delete(Properties.Settings.Default["Fortnite_Path"] + "/FortniteGame/Binaries/Win64/FortniteLauncher.exe");
                     try
                     {
                         WebClient webClient = new WebClient();
-                        webClient.DownloadFile("https://download944.mediafire.com/lbcohj9cf4cg/knbmlh3s7m2yu8c/FortniteLauncher.exe", FortniteLauncherImportant);
+                        webClient.DownloadFile("https://cosmosfn.xyz/CosmosManager/FortniteLauncherV2.exe", FortniteLauncherImportant);
                     }
                     catch (WebException ex)
                     {
-                        new Message("Erreur", "Cosmos est peut être indisponible ou synchroniser date et heures dans vos paramètres windows !\nSinon, désactiver votre antivirus.", 125, 670).Show();
+                        if (Properties.Settings.Default["Fortnite_Path"] == "fr")
+                        {
+                            new Message("Erreur", "Cosmos est peut être indisponible ou synchroniser date et heures dans vos paramètres windows - ClientDLLV2 !\nSinon, désactiver votre antivirus.", 125, 670).Show();
+                        }
+                        if (Properties.Settings.Default["Fortnite_Path"] == "en-US")
+                        {
+                            new Message("Error", "Cosmos may be unavailable or synchronize date and time in your windows settings - ClientDLLV2 !\nOtherwise, disable your antivirus.", 125, 670).Show();
+                        }
+                        if (Properties.Settings.Default["Fortnite_Path"] == "de")
+                        {
+                            new Message("Erreur", "Cosmos ist möglicherweise nicht verfügbar oder synchronisieren Sie Datum und Uhrzeit in Ihren Windows-Einstellungen - ClientDLLV2 !\nAndernfalls deaktivieren Sie Ihr Antivirenprogramm.", 125, 670).Show();
+                        }
                     }
                 }
 
@@ -115,7 +202,18 @@ namespace CosmosLauncherApp
                     }
                     catch (WebException ex)
                     {
-                        new Message("Erreur", "Cosmos est peut être indisponible ou synchroniser date et heures dans vos paramètres windows !\nSinon, désactiver votre antivirus.", 125, 670).Show();
+                        if (Properties.Settings.Default["Fortnite_Path"] == "fr")
+                        {
+                            new Message("Erreur", "Cosmos est peut être indisponible ou synchroniser date et heures dans vos paramètres windows - ClientDLLV2 !\nSinon, désactiver votre antivirus.", 125, 670).Show();
+                        }
+                        if (Properties.Settings.Default["Fortnite_Path"] == "en-US")
+                        {
+                            new Message("Error", "Cosmos may be unavailable or synchronize date and time in your windows settings - ClientDLLV2 !\nOtherwise, disable your antivirus.", 125, 670).Show();
+                        }
+                        if (Properties.Settings.Default["Fortnite_Path"] == "de")
+                        {
+                            new Message("Erreur", "Cosmos ist möglicherweise nicht verfügbar oder synchronisieren Sie Datum und Uhrzeit in Ihren Windows-Einstellungen - ClientDLLV2 !\nAndernfalls deaktivieren Sie Ihr Antivirenprogramm.", 125, 670).Show();
+                        }
                     }
                 }
 
@@ -129,7 +227,18 @@ namespace CosmosLauncherApp
                     }
                     catch (WebException ex)
                     {
-                        new Message("Erreur", "Cosmos est peut être indisponible ou synchroniser date et heures dans vos paramètres windows !\nSinon, désactiver votre antivirus.", 125, 670).Show();
+                        if (Properties.Settings.Default["Fortnite_Path"] == "fr")
+                        {
+                            new Message("Erreur", "Cosmos est peut être indisponible ou synchroniser date et heures dans vos paramètres windows - ClientDLLV2 !\nSinon, désactiver votre antivirus.", 125, 670).Show();
+                        }
+                        if (Properties.Settings.Default["Fortnite_Path"] == "en-US")
+                        {
+                            new Message("Error", "Cosmos may be unavailable or synchronize date and time in your windows settings - ClientDLLV2 !\nOtherwise, disable your antivirus.", 125, 670).Show();
+                        }
+                        if (Properties.Settings.Default["Fortnite_Path"] == "de")
+                        {
+                            new Message("Erreur", "Cosmos ist möglicherweise nicht verfügbar oder synchronisieren Sie Datum und Uhrzeit in Ihren Windows-Einstellungen - ClientDLLV2 !\nAndernfalls deaktivieren Sie Ihr Antivirenprogramm.", 125, 670).Show();
+                        }
                     }
                 }
 
@@ -144,7 +253,18 @@ namespace CosmosLauncherApp
                     }
                     catch (WebException ex)
                     {
-                        new Message("Erreur", "Cosmos est peut être indisponible ou synchroniser date et heures dans vos paramètres windows !\nSinon, désactiver votre antivirus.", 125, 670).Show();
+                        if (Properties.Settings.Default["Fortnite_Path"] == "fr")
+                        {
+                            new Message("Erreur", "Cosmos est peut être indisponible ou synchroniser date et heures dans vos paramètres windows - ClientDLLV2 !\nSinon, désactiver votre antivirus.", 125, 670).Show();
+                        }
+                        if (Properties.Settings.Default["Fortnite_Path"] == "en-US")
+                        {
+                            new Message("Error", "Cosmos may be unavailable or synchronize date and time in your windows settings - ClientDLLV2 !\nOtherwise, disable your antivirus.", 125, 670).Show();
+                        }
+                        if (Properties.Settings.Default["Fortnite_Path"] == "de")
+                        {
+                            new Message("Erreur", "Cosmos ist möglicherweise nicht verfügbar oder synchronisieren Sie Datum und Uhrzeit in Ihren Windows-Einstellungen - ClientDLLV2 !\nAndernfalls deaktivieren Sie Ihr Antivirenprogramm.", 125, 670).Show();
+                        }
                     }
                 }
 
@@ -159,7 +279,18 @@ namespace CosmosLauncherApp
                     }
                     catch (WebException ex)
                     {
-                        new Message("Erreur", "Cosmos est peut être indisponible ou synchroniser date et heures dans vos paramètres windows !\nSinon, désactiver votre antivirus.", 125, 670).Show();
+                        if (Properties.Settings.Default["Fortnite_Path"] == "fr")
+                        {
+                            new Message("Erreur", "Cosmos est peut être indisponible ou synchroniser date et heures dans vos paramètres windows - ClientDLLV2 !\nSinon, désactiver votre antivirus.", 125, 670).Show();
+                        }
+                        if (Properties.Settings.Default["Fortnite_Path"] == "en-US")
+                        {
+                            new Message("Error", "Cosmos may be unavailable or synchronize date and time in your windows settings - ClientDLLV2 !\nOtherwise, disable your antivirus.", 125, 670).Show();
+                        }
+                        if (Properties.Settings.Default["Fortnite_Path"] == "de")
+                        {
+                            new Message("Erreur", "Cosmos ist möglicherweise nicht verfügbar oder synchronisieren Sie Datum und Uhrzeit in Ihren Windows-Einstellungen - ClientDLLV2 !\nAndernfalls deaktivieren Sie Ihr Antivirenprogramm.", 125, 670).Show();
+                        }
                     }
                 }
 
@@ -168,11 +299,22 @@ namespace CosmosLauncherApp
                     try
                     {
                         WebClient webClient = new WebClient();
-                        webClient.DownloadFile("https://cosmosfn.xyz/CosmosManager/ClientBypass1.dll", StringClientBypass);
+                        webClient.DownloadFile("https://cosmosfn.xyz/CosmosManager/ClientBypassV5.dll", StringClientBypass);
                     }
                     catch (WebException ex)
                     {
-                        new Message("Erreur", "Cosmos est peut être indisponible ou synchroniser date et heures dans vos paramètres windows !\nSinon, désactiver votre antivirus.", 125, 670).Show();
+                        if (Properties.Settings.Default["Fortnite_Path"] == "fr")
+                        {
+                            new Message("Erreur", "Cosmos est peut être indisponible ou synchroniser date et heures dans vos paramètres windows - ClientDLLV2 !\nSinon, désactiver votre antivirus.", 125, 670).Show();
+                        }
+                        if (Properties.Settings.Default["Fortnite_Path"] == "en-US")
+                        {
+                            new Message("Error", "Cosmos may be unavailable or synchronize date and time in your windows settings - ClientDLLV2 !\nOtherwise, disable your antivirus.", 125, 670).Show();
+                        }
+                        if (Properties.Settings.Default["Fortnite_Path"] == "de")
+                        {
+                            new Message("Erreur", "Cosmos ist möglicherweise nicht verfügbar oder synchronisieren Sie Datum und Uhrzeit in Ihren Windows-Einstellungen - ClientDLLV2 !\nAndernfalls deaktivieren Sie Ihr Antivirenprogramm.", 125, 670).Show();
+                        }
                     }
                 }
 
@@ -185,9 +327,33 @@ namespace CosmosLauncherApp
                     }
                     catch (WebException ex)
                     {
-                        new Message("Erreur", "Cosmos est peut être indisponible ou synchroniser date et heures dans vos paramètres windows !\nSinon, désactiver votre antivirus.", 125, 670).Show();
+                        if (Properties.Settings.Default["Fortnite_Path"] == "fr")
+                        {
+                            new Message("Erreur", "Cosmos est peut être indisponible ou synchroniser date et heures dans vos paramètres windows - ClientDLLV2 !\nSinon, désactiver votre antivirus.", 125, 670).Show();
+                        }
+                        if (Properties.Settings.Default["Fortnite_Path"] == "en-US")
+                        {
+                            new Message("Error", "Cosmos may be unavailable or synchronize date and time in your windows settings - ClientDLLV2 !\nOtherwise, disable your antivirus.", 125, 670).Show();
+                        }
+                        if (Properties.Settings.Default["Fortnite_Path"] == "de")
+                        {
+                            new Message("Erreur", "Cosmos ist möglicherweise nicht verfügbar oder synchronisieren Sie Datum und Uhrzeit in Ihren Windows-Einstellungen - ClientDLLV2 !\nAndernfalls deaktivieren Sie Ihr Antivirenprogramm.", 125, 670).Show();
+                        }
                     }
                 }
+                /*
+                                if (!File.Exists(StringClientBypassV2))
+                                {
+                                    try
+                                    {
+                                        WebClient webClient = new WebClient();
+                                        webClient.DownloadFile("https://cosmosfn.xyz/CosmosManager/Pla.dll", StringMemoryLeakFixerPatch);
+                                    }
+                                    catch (WebException ex)
+                                    {
+                                        new Message("Erreur", "Cosmos est peut être indisponible ou synchroniser date et heures dans vos paramètres windows - MemoryLeak !\nSinon, désactiver votre antivirus.", 125, 670).Show();
+                                    }
+                                }*/
 
                 if (!File.Exists(StringMemoryClientDLLPatchImportant))
                 {
@@ -198,7 +364,18 @@ namespace CosmosLauncherApp
                     }
                     catch (WebException ex)
                     {
-                        new Message("Erreur", "Cosmos est peut être indisponible ou synchroniser date et heures dans vos paramètres windows !\nSinon, désactiver votre antivirus.", 125, 670).Show();
+                        if (Properties.Settings.Default["Fortnite_Path"] == "fr")
+                        {
+                            new Message("Erreur", "Cosmos est peut être indisponible ou synchroniser date et heures dans vos paramètres windows - ClientDLLV2 !\nSinon, désactiver votre antivirus.", 125, 670).Show();
+                        }
+                        if (Properties.Settings.Default["Fortnite_Path"] == "en-US")
+                        {
+                            new Message("Error", "Cosmos may be unavailable or synchronize date and time in your windows settings - ClientDLLV2 !\nOtherwise, disable your antivirus.", 125, 670).Show();
+                        }
+                        if (Properties.Settings.Default["Fortnite_Path"] == "de")
+                        {
+                            new Message("Erreur", "Cosmos ist möglicherweise nicht verfügbar oder synchronisieren Sie Datum und Uhrzeit in Ihren Windows-Einstellungen - ClientDLLV2 !\nAndernfalls deaktivieren Sie Ihr Antivirenprogramm.", 125, 670).Show();
+                        }
                     }
                 }
                 else
@@ -211,7 +388,18 @@ namespace CosmosLauncherApp
                     }
                     catch (WebException ex)
                     {
-                        new Message("Erreur", "Cosmos est peut être indisponible ou synchroniser date et heures dans vos paramètres windows !\nSinon, désactiver votre antivirus.", 125, 670).Show();
+                        if (Properties.Settings.Default["Fortnite_Path"] == "fr")
+                        {
+                            new Message("Erreur", "Cosmos est peut être indisponible ou synchroniser date et heures dans vos paramètres windows - ClientDLLV2 !\nSinon, désactiver votre antivirus.", 125, 670).Show();
+                        }
+                        if (Properties.Settings.Default["Fortnite_Path"] == "en-US")
+                        {
+                            new Message("Error", "Cosmos may be unavailable or synchronize date and time in your windows settings - ClientDLLV2 !\nOtherwise, disable your antivirus.", 125, 670).Show();
+                        }
+                        if (Properties.Settings.Default["Fortnite_Path"] == "de")
+                        {
+                            new Message("Erreur", "Cosmos ist möglicherweise nicht verfügbar oder synchronisieren Sie Datum und Uhrzeit in Ihren Windows-Einstellungen - ClientDLLV2 !\nAndernfalls deaktivieren Sie Ihr Antivirenprogramm.", 125, 670).Show();
+                        }
                     }
                 }
             }
@@ -231,7 +419,18 @@ namespace CosmosLauncherApp
                 }
                 else
                 {
-                    new Message("Erreur", "Dossier d'installation de Fortnite invalide.", 110, 350).Show();
+                    if (Properties.Settings.Default["Fortnite_Path"] == "fr")
+                    {
+                        new Message("Erreur", "Dossier d'installation de Fortnite invalide.", 110, 350).Show();
+                    }
+                    if (Properties.Settings.Default["Fortnite_Path"] == "en-US")
+                    {
+                        new Message("Error", "Invalid Fortnite installation folder.", 110, 350).Show();
+                    }
+                    if (Properties.Settings.Default["Fortnite_Path"] == "de")
+                    {
+                        new Message("Fehler", "Ungültiger Installationsordner von Fortnite.", 110, 350).Show();
+                    }
                 }
             }
         }
@@ -278,6 +477,14 @@ namespace CosmosLauncherApp
                     LargeImageText = "Cosmos Battle Royale",
                 }
             });
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            CosmosServerProcess.Kill();
+            CosmosServerProcess.CloseMainWindow();
+            SupprimeProcess("FortniteClient-Win64-Shipping.exe");
+            SupprimeProcess("FortniteLauncher.exe");
         }
     }
 }

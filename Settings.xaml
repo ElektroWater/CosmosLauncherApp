@@ -4,22 +4,24 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CosmosLauncherApp"
+        xmlns:p = "clr-namespace:CosmosLauncherApp.Langues"
         xmlns:ui="http://schemas.modernwpf.com/2019"
         ui:WindowHelper.UseModernWindowStyle="True"
         mc:Ignorable="d"
-        Title="Paramètres" Height="280" Width="650" WindowStyle="ThreeDBorderWindow" WindowStartupLocation="CenterScreen" Icon="/img/Logo.png" Background="#FF9C00FF" ResizeMode="NoResize">
+        Title="Paramètres" Height="230" Width="500" WindowStyle="ThreeDBorderWindow" WindowStartupLocation="CenterScreen" Icon="/img/Logo.png" Background="#FF9C00FF" ResizeMode="NoResize">
     <Grid>
-        <TextBox x:Name="Username_Textbox" HorizontalAlignment="Left" Margin="162,10,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="378"/>
-        <Label Content="Nom d'utilisateur :" HorizontalAlignment="Left" Margin="27,17,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="Username_Textbox" Margin="180,10,10,0" TextWrapping="Wrap" Text="" MaxLength="16" TextChanged="Username_Textbox_TextChanged" Height="32" VerticalAlignment="Top"/>
+        <Label Content="{x:Static p:Lang.Username}" HorizontalAlignment="Left" Margin="10,17,0,0" VerticalAlignment="Top"/>
         <Label Content="Credits to CuteLess and ElektroWater for the launcher" HorizontalAlignment="Center" Margin="0,0,0,15" FontSize="10" Height="13" VerticalAlignment="Bottom"/>
-        <Button x:Name="Save_Username_btn" Content="Sauvegarder" Margin="545,10,0,0" VerticalAlignment="Top" Click="Save_Username_btn_Click"/>
-        <TextBox x:Name="Argument_Textbox" HorizontalAlignment="Left" Margin="162,47,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="378"/>
-        <Button x:Name="Save_Argument" Content="Sauvegarder" Margin="545,47,0,0" VerticalAlignment="Top" Click="Save_Argument_Click"/>
-        <Label Content="Arguments additionels :" HorizontalAlignment="Left" Margin="10,54,0,0" VerticalAlignment="Top"/>
-        <CheckBox x:Name="Logs_Checkbox" Content="Masquer logs au lancement de Cosmos" Margin="10,84,0,0" VerticalAlignment="Top" Height="32"/>
-        <Button x:Name="Save_Logs_btn" Content="Sauvegarder" Margin="286,84,0,0" VerticalAlignment="Top" Click="Save_Logs"/>
-        <CheckBox x:Name="Logs_Checkbox_Server" Content="Masquer logs de Cosmos Server" Margin="32,121,0,0" VerticalAlignment="Top" Height="32"/>
-        <Button x:Name="Save_Logs_btn_Server" Content="Sauvegarder" Margin="286,121,0,0" VerticalAlignment="Top" Click="Save_Logs_Server"/>
+        <TextBox x:Name="Argument_Textbox" Margin="180,47,10,0" TextWrapping="Wrap" Text="" TextChanged="Argument_Textbox_TextChanged" Height="32" VerticalAlignment="Top"/>
+        <Label Content="{x:Static p:Lang.Arguments}" HorizontalAlignment="Left" Margin="10,54,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="Logs_Checkbox" Content="{x:Static p:Lang.Hide1}" Margin="10,84,0,0" VerticalAlignment="Top" Height="32" Click="Logs_Checkbox_Click"/>
+        <CheckBox x:Name="Logs_Checkbox_Server" Content="{x:Static p:Lang.Hide2}" Margin="10,121,0,0" VerticalAlignment="Top" Height="32" Click="Logs_Checkbox_Server_Click"/>
+        <ComboBox x:Name="comboBox_Lang" Margin="0,84,10,0" SelectionChanged="ComboBox_SelectionChanged" HorizontalAlignment="Right" Width="120">
+            <ComboBoxItem Content="Français"/>
+            <ComboBoxItem Content="English"/>
+            <ComboBoxItem Content="Deutsch"/>
+        </ComboBox>
 
     </Grid>
 </Window>

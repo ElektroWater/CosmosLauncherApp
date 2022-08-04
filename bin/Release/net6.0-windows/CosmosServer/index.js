@@ -25,13 +25,12 @@ express.use(require("./structure/matchmaking.js"));
 express.use(require("./structure/cloudstorage.js"));
 express.use(require("./structure/mcp.js"));
 
-const port = process.env.PORT || 5595;
+const port = process.env.PORT || 3551;
 express.listen(port, () => {
-    console.log("LawinServer started listening on port", port);
-
-    require("./structure/xmpp.js");
+    console.log("CosmosServer utilise le port :", port);
+    console.log("Credits to Lawin")
 }).on("error", (err) => {
-    if (err.code == "EADDRINUSE") console.log(`\x1b[31mERROR\x1b[0m: Port ${port} is already in use!`);
+    if (err.code == "EADDRINUSE") console.log(`\x1b[31mERROR\x1b[0m: Le port ${port} est déjà utilisé !`);
     else throw err;
 
     process.exit(0);

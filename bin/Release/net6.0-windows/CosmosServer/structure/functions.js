@@ -1,5 +1,6 @@
 const XMLBuilder = require("xmlbuilder");
 const uuid = require("uuid");
+var request = require('request');
 
 function GetVersionInfo(req) {
     var memory = {
@@ -63,14 +64,21 @@ function GetVersionInfo(req) {
 
 function getItemShop() {
     const catalog = JSON.parse(JSON.stringify(require("./../responses/catalog.json")));
-    const CatalogConfig = require("./../Config/catalog_config.json");
+    const CatalogConfigz = require("./../Config/catalog_config.json");
+    request('http://104.248.200.90/catalog.json', function (error, response, body) {
+    if (!error && response.statusCode == 200) {
+        var importedJSON = JSON.parse(body);
+        //console.log(importedJSON["daily1"].itemGrants[0])
+        CatalogConfig = importedJSON
+    
+    
 
     try {
         for (var value in CatalogConfig) {
+            
             if (Array.isArray(CatalogConfig[value].itemGrants)) {
                 if (CatalogConfig[value].itemGrants.length != 0) {
                     const CatalogEntry = {"devName":"","offerId":"","fulfillmentIds":[],"dailyLimit":-1,"weeklyLimit":-1,"monthlyLimit":-1,"categories":[],"prices":[{"currencyType":"MtxCurrency","currencySubType":"","regularPrice":0,"finalPrice":0,"saleExpiration":"9999-12-02T01:12:00Z","basePrice":0}],"matchFilter":"","filterWeight":0,"appStoreId":[],"requirements":[],"offerType":"StaticPrice","giftInfo":{"bIsEnabled":false,"forcedGiftBoxTemplateId":"","purchaseRequirements":[],"giftRecordIds":[]},"refundable":true,"metaInfo":[],"displayAssetPath":"","itemGrants":[],"sortPriority":0,"catalogGroupPriority":0};
-
                     if (value.toLowerCase().startsWith("daily")) {
                         catalog.storefronts.forEach((storefront, i) => {
                             if (storefront.name == "BRDailyStorefront") {
@@ -131,8 +139,11 @@ function getItemShop() {
                 }
             }
         }
-    } catch (err) {}
-
+    } catch (err) {
+        console.log(err)
+    }
+}
+})
     return catalog;
 }
 
@@ -211,8 +222,8 @@ function getContentPages(req) {
     try {
         if (memory.season < 5 || (memory.season == 5 && Number(memory.build.toString().split(".")[1]) < 30)) { 
             news.forEach(mode => {
-                contentpages[mode].news.messages[0].image = "https://media.discordapp.net/attachments/994606313961177189/994606514817990726/Bannier_V1.png?width=256&height=256";
-                contentpages[mode].news.messages[1].image = "https://media.discordapp.net/attachments/408278483555450880/995452927672061982/Bannier_V1_SANS_DSC.png?width=256&height=256";
+                contentpages[mode].news.messages[0].image = "https://cdn.discordapp.com/attachments/927739901540188200/930879507496308736/discord.png";
+                contentpages[mode].news.messages[1].image = "https://cdn.discordapp.com/attachments/927739901540188200/930879519882088508/lawin.png";
             })
         }
     } catch (err) {}

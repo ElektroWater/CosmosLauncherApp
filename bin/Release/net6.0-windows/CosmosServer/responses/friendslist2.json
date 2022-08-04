@@ -8,6 +8,60 @@
       "note": "",
       "favorite": false,
       "created": "2022-07-08T23:23:55.157Z"
+    },
+    {
+      "accountId": "suizyzi",
+      "groups": [],
+      "mutual": 0,
+      "alias": "",
+      "note": "",
+      "favorite": false,
+      "created": "2022-07-26T17:15:29.194Z"
+    },
+    {
+      "accountId": "Dev_ElektroWater",
+      "groups": [],
+      "mutual": 0,
+      "alias": "",
+      "note": "",
+      "favorite": false,
+      "created": "2022-08-01T13:06:45.377Z"
+    },
+    {
+      "accountId": "[Helper]24ezo",
+      "groups": [],
+      "mutual": 0,
+      "alias": "",
+      "note": "",
+      "favorite": false,
+      "created": "2022-08-04T15:05:35.527Z"
+    },
+    {
+      "accountId": "Sacha",
+      "groups": [],
+      "mutual": 0,
+      "alias": "",
+      "note": "",
+      "favorite": false,
+      "created": "2022-08-04T15:06:57.015Z"
+    },
+    {
+      "accountId": "Sacha_Touille",
+      "groups": [],
+      "mutual": 0,
+      "alias": "",
+      "note": "",
+      "favorite": false,
+      "created": "2022-08-04T15:09:00.713Z"
+    },
+    {
+      "accountId": "Jean_Rigole",
+      "groups": [],
+      "mutual": 0,
+      "alias": "",
+      "note": "",
+      "favorite": false,
+      "created": "2022-08-04T15:35:09.696Z"
     }
   ],
   "incoming": [],
