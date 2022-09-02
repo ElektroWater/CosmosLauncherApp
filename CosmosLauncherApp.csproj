@@ -7,6 +7,9 @@
     <UseWPF>true</UseWPF>
     <UseWindowsForms>true</UseWindowsForms>
     <ApplicationIcon>Logo.ico</ApplicationIcon>
+    <Authors>ElektroWater</Authors>
+    <Company>Cosmos</Company>
+    <StartupObject></StartupObject>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -18,14 +21,22 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Remove="C:\Users\NathanGui\.nuget\packages\fiddlercore.trial\5.0.2\contentFiles\any\netstandard2.0\BasicFormatsForCore.dll" />
-  </ItemGroup>
-
-  <ItemGroup>
     <None Remove="Background.png" />
     <None Remove="Bannier_V1_SANS_DSC.png" />
+    <None Remove="Components\daily1.png" />
+    <None Remove="Components\daily2.png" />
+    <None Remove="Components\daily3.png" />
+    <None Remove="Components\daily4.png" />
+    <None Remove="Components\daily5.png" />
+    <None Remove="Components\daily6.png" />
+    <None Remove="Components\featured1.png" />
+    <None Remove="Components\featured2.png" />
+    <None Remove="Components\VBucks.png" />
     <None Remove="Discord.png" />
+    <None Remove="featured %281%29.png" />
     <None Remove="Logo.png" />
+    <None Remove="S5.png" />
+    <None Remove="VBucks.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -43,15 +54,14 @@
 
   <ItemGroup>
     <PackageReference Include="DiscordRichPresence" Version="1.0.175" />
+    <PackageReference Include="MahApps.Metro.IconPacks.Material" Version="4.11.0" />
     <PackageReference Include="ModernWpfUI" Version="0.9.6" />
   </ItemGroup>
 
 
   <ItemGroup>
-    <Resource Include="img\Bannier_V1_SANS_DSC.png" />
     <Resource Include="img\Logo.png" />
     <Resource Include="img\Background.png" />
-    <Resource Include="img\Discord.png" />
   </ItemGroup>
 
 

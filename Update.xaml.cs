@@ -25,7 +25,7 @@ namespace CosmosLauncherApp
             InitializeComponent();
         }
 
-        private void Update_btn_Click(object sender, RoutedEventArgs e)
+        private void Update_btn_Click(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
             Process.Start(new ProcessStartInfo("https://www.discord.gg/cosmos") { UseShellExecute = true });
         }

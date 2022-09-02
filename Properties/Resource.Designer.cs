@@ -59,23 +59,5 @@ namespace CosmosLauncherApp.Properties {
                 resourceCulture = value;
             }
         }
-        
-        /// <summary>
-        ///   Recherche une chaîne localisée semblable à Lancer Cosmos.
-        /// </summary>
-        public static string Launch {
-            get {
-                return ResourceManager.GetString("Launch", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une chaîne localisée semblable à Nom d&apos;utilsateur :.
-        /// </summary>
-        public static string Username {
-            get {
-                return ResourceManager.GetString("Username", resourceCulture);
-            }
-        }
     }
 }

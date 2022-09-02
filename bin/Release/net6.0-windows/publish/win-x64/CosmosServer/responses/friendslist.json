@@ -1,0 +1,93 @@
+[
+  {
+    "accountId": "ElektroWater",
+    "status": "ACCEPTED",
+    "direction": "OUTBOUND",
+    "created": "2022-07-08T23:23:55.157Z",
+    "favorite": false
+  },
+  {
+    "accountId": "suizyzi",
+    "status": "ACCEPTED",
+    "direction": "OUTBOUND",
+    "created": "2022-07-26T17:15:29.194Z",
+    "favorite": false
+  },
+  {
+    "accountId": "Dev_ElektroWater",
+    "status": "ACCEPTED",
+    "direction": "OUTBOUND",
+    "created": "2022-08-01T13:06:45.377Z",
+    "favorite": false
+  },
+  {
+    "accountId": "[Helper]24ezo",
+    "status": "ACCEPTED",
+    "direction": "OUTBOUND",
+    "created": "2022-08-04T15:05:35.527Z",
+    "favorite": false
+  },
+  {
+    "accountId": "Sacha",
+    "status": "ACCEPTED",
+    "direction": "OUTBOUND",
+    "created": "2022-08-04T15:06:57.015Z",
+    "favorite": false
+  },
+  {
+    "accountId": "Sacha_Touille",
+    "status": "ACCEPTED",
+    "direction": "OUTBOUND",
+    "created": "2022-08-04T15:09:00.713Z",
+    "favorite": false
+  },
+  {
+    "accountId": "Jean_Rigole",
+    "status": "ACCEPTED",
+    "direction": "OUTBOUND",
+    "created": "2022-08-04T15:35:09.696Z",
+    "favorite": false
+  },
+  {
+    "accountId": "ElektroLoveKqrsh",
+    "status": "ACCEPTED",
+    "direction": "OUTBOUND",
+    "created": "2022-08-05T14:11:03.673Z",
+    "favorite": false
+  },
+  {
+    "accountId": "JoueurCosmos",
+    "status": "ACCEPTED",
+    "direction": "OUTBOUND",
+    "created": "2022-08-22T18:51:56.546Z",
+    "favorite": false
+  },
+  {
+    "accountId": "Test",
+    "status": "ACCEPTED",
+    "direction": "OUTBOUND",
+    "created": "2022-08-22T18:53:50.885Z",
+    "favorite": false
+  },
+  {
+    "accountId": "ElektroWaterPlay",
+    "status": "ACCEPTED",
+    "direction": "OUTBOUND",
+    "created": "2022-08-28T16:16:16.451Z",
+    "favorite": false
+  },
+  {
+    "accountId": "ELEKTROWATERHOST",
+    "status": "ACCEPTED",
+    "direction": "OUTBOUND",
+    "created": "2022-08-28T16:18:58.090Z",
+    "favorite": false
+  },
+  {
+    "accountId": "ELEKTROWATER",
+    "status": "ACCEPTED",
+    "direction": "OUTBOUND",
+    "created": "2022-08-28T16:20:49.458Z",
+    "favorite": false
+  }
+]

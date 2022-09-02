@@ -1,13 +1,21 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <PropertyGroup />
+  <PropertyGroup>
+    <_LastSelectedProfileId>C:\Users\Nathan\Documents\Github\CosmosLauncherApp\Properties\PublishProfiles\FolderProfile.pubxml</_LastSelectedProfileId>
+  </PropertyGroup>
   <ItemGroup>
     <ApplicationDefinition Update="App.xaml">
       <SubType>Designer</SubType>
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
-    <Compile Update="InjectMessagexaml.xaml.cs">
+    <Compile Update="Components\ButtonControl.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Components\NavTest.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="InjectMessage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Message.xaml.cs">
@@ -21,7 +29,18 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Page Update="InjectMessagexaml.xaml">
+    <EmbeddedResource Update="Langues\Lang.en-US.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Components\ButtonControl.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Components\NavTest.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="InjectMessage.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="MainWindow.xaml">

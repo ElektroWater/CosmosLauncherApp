@@ -1,0 +1,2 @@
+C:\Users\Nathan\Documents\Github\CosmosLauncherApp\bin\Release\net6.0-windows\publish\win-x64\CosmosLauncherApp.pdb
+C:\Users\Nathan\Documents\Github\CosmosLauncherApp\bin\Release\net6.0-windows\publish\win-x64\CosmosLauncherApp.exe

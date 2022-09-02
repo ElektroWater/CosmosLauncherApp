@@ -20,6 +20,7 @@ namespace CosmosLauncherApp
     /// </summary>
     public partial class Settings : Window
     {
+        bool change = false;
         public Settings()
         {
             var lang = Properties.Settings.Default.language;
@@ -30,6 +31,7 @@ namespace CosmosLauncherApp
             Argument_Textbox.Text = Properties.Settings.Default["Argument"].ToString();
             Logs_Checkbox.IsChecked = Properties.Settings.Default["Logs"].ToString() == "True";
             Logs_Checkbox_Server.IsChecked = Properties.Settings.Default["Logs_Server"].ToString() == "True";
+            change = true;
         }
 
         private void Lang()
@@ -63,6 +65,11 @@ namespace CosmosLauncherApp
                 Properties.Settings.Default.language = "de";
             }
             Properties.Settings.Default.Save();
+            if (change)
+            {
+                Application.Current.Shutdown();
+                System.Windows.Forms.Application.Restart();
+            }
         }
 
         private void Logs_Checkbox_Click(object sender, RoutedEventArgs e)
@@ -87,6 +94,11 @@ namespace CosmosLauncherApp
         {
             Properties.Settings.Default["Argument"] = Argument_Textbox.Text;
             Properties.Settings.Default.Save();
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            
         }
     }
 }

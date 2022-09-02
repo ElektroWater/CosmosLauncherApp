@@ -6,19 +6,23 @@
         xmlns:local="clr-namespace:CosmosLauncherApp"
         xmlns:p = "clr-namespace:CosmosLauncherApp.Langues"
         xmlns:ui="http://schemas.modernwpf.com/2019"
+        xmlns:Cosmos="clr-namespace:CosmosLauncherApp.Components"
         ui:WindowHelper.UseModernWindowStyle="True"
         mc:Ignorable="d"
-        Title="Cosmos Battle Royale" Height="450" Width="800" Icon="/img/Logo.png" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen" Closing="Window_Closing">
+        Title="Cosmos Battle Royale" Height="500" Width="888" Icon="/img/Logo.png" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen" Closing="Window_Closing" BorderThickness="0">
     <Window.Background>
         <ImageBrush ImageSource="img/Background.png"></ImageBrush>
     </Window.Background>
     <Grid x:Name="Fenetre">
-        <Button x:Name="Launch_btn" Content="{x:Static p:Lang.Launch}"  Margin="0,0,0,15" VerticalAlignment="Bottom" Click="Launch_btn_Click" HorizontalAlignment="Center" Height="32"/>
-        <TextBox x:Name="Folder_Label" Margin="55,0,87,55" TextWrapping="Wrap" VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Visible" IsReadOnly="True" Height="32" VerticalAlignment="Bottom"/>
-        <Button x:Name="Folder_btn" Content="..." Margin="0,0,55,55" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="27" Click="Folder_btn_Click" Height="32"/>
-        <Button x:Name="Discord_btn" Content="Discord" Margin="0,0,610,15" VerticalAlignment="Bottom" Click="Discord_btn_Click" Height="32" HorizontalAlignment="Right" Width="65"/>
-        <Label Content="Version 1.0.0" Margin="0,0,4,2" FontSize="10" HorizontalAlignment="Right" Width="56" Height="13" VerticalAlignment="Bottom"/>
-        <Button x:Name="Help_btn" Content="{x:Static p:Lang.Tutorial}" Margin="55,0,0,15" VerticalAlignment="Bottom" Click="Help_btn_Click" Height="32"/>
-        <Button x:Name="Settings_btn" Content="{x:Static p:Lang.Settings}" Margin="0,0,54,15" VerticalAlignment="Bottom" Click="Settings_btn_Click" HorizontalAlignment="Right" Height="32" Width="106"/>
+        <!--<Cosmos:NavTest HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0 2.5 0 0"/>  Peut être une navbar un jour-->
+        <Cosmos:ButtonControl x:Name="Username_btn" Icon="Account" HorizontalAlignment="Right" Margin="45 15 45 0" VerticalAlignment="Top" MouseDown="Username_btn_MouseDown"/>
+        <Cosmos:ButtonControl x:Name="Discord_btn" Text="Discord" Icon="Discord" Margin="45,0,45,15" VerticalAlignment="Bottom" HorizontalAlignment="Left" MouseDown="Discord_btn_Click"/>
+        <Cosmos:ButtonControl x:Name="Settings_btn" Margin="45,0,45,15" Text="{x:Static p:Lang.Settings}" Icon="Cog" MouseDown="Settings_btn_MouseDown" Height="36" VerticalAlignment="Bottom" HorizontalAlignment="Right"/>
+        <Cosmos:ButtonControl VerticalAlignment="Bottom" HorizontalAlignment="Center" Icon="Play" Text="{x:Static p:Lang.Launch}" MouseDown="Launch_btn_Click" Margin="0,0,0,15"/>
+        <Border CornerRadius="5" Background="#6500A3" Margin="45,0,100,65" VerticalAlignment="Bottom">
+            <TextBox x:Name="Folder_Label" Background="Transparent" VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Visible" IsReadOnly="True" TextWrapping="Wrap" BorderThickness="0" FontSize="16" Padding="7.5"/>
+        </Border>
+        <Cosmos:ButtonControl x:Name="Folder_btn" MouseDown="Folder_btn_Click" Text="..." Icon="Folder" VerticalAlignment="Bottom" Margin="0,0,45,65" HorizontalAlignment="Right"/>
+        <Label x:Name="Version_Label" Content="Version 1.0" Margin="0,0,4,2" FontSize="10" HorizontalAlignment="Right" Width="50" Height="13" VerticalAlignment="Bottom"/>
     </Grid>
 </Window>

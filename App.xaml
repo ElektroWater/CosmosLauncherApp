@@ -11,7 +11,8 @@
                 <ui:XamlControlsResources />
                 <!-- Other merged dictionaries here -->
             </ResourceDictionary.MergedDictionaries>
-            <!-- Other app resources here -->
+            <Style x:Key="Fortnite">
+                <Setter Property="TextElement.FontFamily" Value="/Fonts/#BurbankBigCondensed"></Setter></Style>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

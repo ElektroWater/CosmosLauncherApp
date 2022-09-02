@@ -9,12 +9,16 @@
       "CosmosLauncherApp/1.0.0": {
         "dependencies": {
           "DiscordRichPresence": "1.0.175",
+          "MahApps.Metro.IconPacks.Material": "4.11.0",
           "ModernWpfUI": "0.9.6"
         },
         "runtime": {
           "CosmosLauncherApp.dll": {}
         },
         "resources": {
+          "de/CosmosLauncherApp.resources.dll": {
+            "locale": "de"
+          },
           "en-US/CosmosLauncherApp.resources.dll": {
             "locale": "en-US"
           }
@@ -29,6 +33,18 @@
           "lib/netstandard2.0/DiscordRPC.dll": {
             "assemblyVersion": "1.0.175.0",
             "fileVersion": "1.0.175.0"
+          }
+        }
+      },
+      "MahApps.Metro.IconPacks.Material/4.11.0": {
+        "runtime": {
+          "lib/net5.0-windows7.0/MahApps.Metro.IconPacks.Core.dll": {
+            "assemblyVersion": "4.0.0.0",
+            "fileVersion": "4.11.0.12"
+          },
+          "lib/net5.0-windows7.0/MahApps.Metro.IconPacks.Material.dll": {
+            "assemblyVersion": "4.0.0.0",
+            "fileVersion": "4.11.0.12"
           }
         }
       },
@@ -464,6 +480,13 @@
       "sha512": "sha512-qSWobPTbvHh9gOoBYT8C8eUhKtVdBI/WvW7GY9lNMEtsZIpL6nxCvYJwjsGL3dqlEAGY5k0vdq+wnuDLVBSV2w==",
       "path": "discordrichpresence/1.0.175",
       "hashPath": "discordrichpresence.1.0.175.nupkg.sha512"
+    },
+    "MahApps.Metro.IconPacks.Material/4.11.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ZCuuxWHvXxl39XBYXk4PCMUVtw1pevT5AE1qsj7VRy2tRtDYbzHWYW0FbnH+Vf0rP7BogZrRlKns3zFEkDEjFQ==",
+      "path": "mahapps.metro.iconpacks.material/4.11.0",
+      "hashPath": "mahapps.metro.iconpacks.material.4.11.0.nupkg.sha512"
     },
     "Microsoft.NETCore.Platforms/2.0.0": {
       "type": "package",

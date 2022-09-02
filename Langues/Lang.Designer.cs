@@ -61,6 +61,15 @@ namespace CosmosLauncherApp.Langues {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à Actus.
+        /// </summary>
+        public static string Actus {
+            get {
+                return ResourceManager.GetString("Actus", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à Arguments additionnelles :.
         /// </summary>
         public static string Arguments {
@@ -124,11 +133,11 @@ namespace CosmosLauncherApp.Langues {
         }
         
         /// <summary>
-        ///   Recherche une chaîne localisée semblable à Tutoriel.
+        ///   Recherche une chaîne localisée semblable à Boutique d&apos;objets.
         /// </summary>
-        public static string Tutorial {
+        public static string Shop {
             get {
-                return ResourceManager.GetString("Tutorial", resourceCulture);
+                return ResourceManager.GetString("Shop", resourceCulture);
             }
         }
         

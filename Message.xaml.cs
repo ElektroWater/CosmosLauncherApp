@@ -23,12 +23,12 @@ namespace CosmosLauncherApp
         {
             InitializeComponent();
             Message_Label.Content = message;
-            this.Title = title;
-            this.Height = height;
-            this.Width = width;
+            Title = title;
+            Height = height;
+            Width = width;
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Button_Click(object sender, MouseButtonEventArgs e)
         {
             this.Close();
         }

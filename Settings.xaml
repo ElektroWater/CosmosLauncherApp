@@ -7,21 +7,35 @@
         xmlns:p = "clr-namespace:CosmosLauncherApp.Langues"
         xmlns:ui="http://schemas.modernwpf.com/2019"
         ui:WindowHelper.UseModernWindowStyle="True"
-        mc:Ignorable="d"
-        Title="Paramètres" Height="230" Width="500" WindowStyle="ThreeDBorderWindow" WindowStartupLocation="CenterScreen" Icon="/img/Logo.png" Background="#FF9C00FF" ResizeMode="NoResize">
+        mc:Ignorable="d" BorderThickness="0"
+        Title="Paramètres" Height="280" Width="600" WindowStyle="ThreeDBorderWindow" WindowStartupLocation="CenterScreen" Icon="/img/Logo.png" Background="#7E00CC" ResizeMode="NoResize" Closing="Window_Closing">
     <Grid>
-        <TextBox x:Name="Username_Textbox" Margin="180,10,10,0" TextWrapping="Wrap" Text="" MaxLength="16" TextChanged="Username_Textbox_TextChanged" Height="32" VerticalAlignment="Top"/>
-        <Label Content="{x:Static p:Lang.Username}" HorizontalAlignment="Left" Margin="10,17,0,0" VerticalAlignment="Top"/>
-        <Label Content="Credits to CuteLess and ElektroWater for the launcher" HorizontalAlignment="Center" Margin="0,0,0,15" FontSize="10" Height="13" VerticalAlignment="Bottom"/>
-        <TextBox x:Name="Argument_Textbox" Margin="180,47,10,0" TextWrapping="Wrap" Text="" TextChanged="Argument_Textbox_TextChanged" Height="32" VerticalAlignment="Top"/>
-        <Label Content="{x:Static p:Lang.Arguments}" HorizontalAlignment="Left" Margin="10,54,0,0" VerticalAlignment="Top"/>
-        <CheckBox x:Name="Logs_Checkbox" Content="{x:Static p:Lang.Hide1}" Margin="10,84,0,0" VerticalAlignment="Top" Height="32" Click="Logs_Checkbox_Click"/>
-        <CheckBox x:Name="Logs_Checkbox_Server" Content="{x:Static p:Lang.Hide2}" Margin="10,121,0,0" VerticalAlignment="Top" Height="32" Click="Logs_Checkbox_Server_Click"/>
-        <ComboBox x:Name="comboBox_Lang" Margin="0,84,10,0" SelectionChanged="ComboBox_SelectionChanged" HorizontalAlignment="Right" Width="120">
-            <ComboBoxItem Content="Français"/>
-            <ComboBoxItem Content="English"/>
-            <ComboBoxItem Content="Deutsch"/>
-        </ComboBox>
-
+        <Border Background="#FF9C00FF" Height="50" CornerRadius="10" Margin="25,10,25,0" VerticalAlignment="Top">
+            <Grid>
+                <Label FontSize="16" Content="{x:Static p:Lang.Username}" HorizontalAlignment="Left" Margin="7.5,15,0,0" VerticalAlignment="Top"/>
+                <Border CornerRadius="5" Background="#6500A3" VerticalAlignment="Top" Margin="150,7.5,7.5,0">
+                    <TextBox x:Name="Username_Textbox" Background="Transparent" BorderThickness="0" FontSize="16" Padding="7.5" TextWrapping="Wrap" Text="" MaxLength="16" TextChanged="Username_Textbox_TextChanged"/>
+                </Border>
+            </Grid>
+        </Border>
+        <Border Background="#FF9C00FF" Height="130" CornerRadius="10" Margin="25,80,25,0" VerticalAlignment="Top">
+            <Grid>
+                <Label Content="{x:Static p:Lang.Arguments}" Margin="7.5,15,375,0" VerticalAlignment="Top"/>
+                <Border CornerRadius="5" Background="#6500A3" VerticalAlignment="Top" Margin="180,7.5,7.5,0">
+                    <TextBox x:Name="Argument_Textbox" Background="Transparent" BorderThickness="0" TextWrapping="Wrap" Text="" Padding="7.5" TextChanged="Argument_Textbox_TextChanged"/>
+                </Border>
+                <Border CornerRadius="5" Background="#6500A3" HorizontalAlignment="Right" Margin="0,50,7.5,0" VerticalAlignment="Top">
+                    <ComboBox x:Name="comboBox_Lang" Background="Transparent" FontSize="16" BorderThickness="0" SelectionChanged="ComboBox_SelectionChanged" Width="120">
+                        <ComboBoxItem Content="Français"/>
+                        <ComboBoxItem Content="English"/>
+                        <ComboBoxItem Content="Deutsch"/>
+                    </ComboBox>
+                </Border>
+                <CheckBox Background="red" x:Name="Logs_Checkbox" Content="{x:Static p:Lang.Hide1}" Margin="7.5,50,0,0" VerticalAlignment="Top" Height="32" Click="Logs_Checkbox_Click">
+                </CheckBox>
+                <CheckBox x:Name="Logs_Checkbox_Server" Content="{x:Static p:Lang.Hide2}" Margin="7.5,90,0,0" VerticalAlignment="Top" Height="32" Click="Logs_Checkbox_Server_Click"/>
+            </Grid>
+        </Border>
+        <Label Content="Credits to CuteLess and ElektroWater for the launcher" HorizontalAlignment="Center" Margin="0,0,0,10" FontSize="12" Height="13" VerticalAlignment="Bottom"/>
     </Grid>
 </Window>

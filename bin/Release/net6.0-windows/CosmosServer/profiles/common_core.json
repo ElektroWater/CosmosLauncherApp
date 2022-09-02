@@ -1,7 +1,7 @@
 {
   "created": "0001-01-01T00:00:00.000Z",
   "updated": "0001-01-01T00:00:00.000Z",
-  "rvn": 20,
+  "rvn": 23,
   "wipeNumber": 1,
   "accountId": "LawinServer",
   "profileId": "common_core",
@@ -34,7 +34,7 @@
       "attributes": {
         "platform": "EpicPC"
       },
-      "quantity": 12000
+      "quantity": 9100
     },
     "Token:FounderChatUnlock": {
       "templateId": "Token:FounderChatUnlock",
@@ -2334,6 +2334,60 @@
             "totalMtxPaid": 1500,
             "metadata": {},
             "gameContext": ""
+          },
+          {
+            "purchaseId": "2c3baac9-8b2f-441b-9497-e8f0444f4880",
+            "offerId": "v2:/2c3baac9-8b2f-441b-9497-e8f0444f4880",
+            "purchaseDate": "2022-08-05T13:54:12.506Z",
+            "freeRefundEligible": false,
+            "fulfillments": [],
+            "lootResult": [
+              {
+                "itemType": "AthenaPickaxe:Pickaxe_ID_116_Celestial",
+                "itemGuid": "AthenaPickaxe:Pickaxe_ID_116_Celestial",
+                "itemProfile": "athena",
+                "quantity": 1
+              }
+            ],
+            "totalMtxPaid": 200,
+            "metadata": {},
+            "gameContext": ""
+          },
+          {
+            "purchaseId": "164cdc63-6684-4cf5-ad8e-b56935866111",
+            "offerId": "v2:/164cdc63-6684-4cf5-ad8e-b56935866111",
+            "purchaseDate": "2022-08-05T14:26:17.759Z",
+            "freeRefundEligible": false,
+            "fulfillments": [],
+            "lootResult": [
+              {
+                "itemType": "AthenaDance:EID_Tidy",
+                "itemGuid": "AthenaDance:EID_Tidy",
+                "itemProfile": "athena",
+                "quantity": 1
+              }
+            ],
+            "totalMtxPaid": 1200,
+            "metadata": {},
+            "gameContext": ""
+          },
+          {
+            "purchaseId": "a1ed2310-2498-4fd4-99c8-9e246a4ee119",
+            "offerId": "v2:/a1ed2310-2498-4fd4-99c8-9e246a4ee119",
+            "purchaseDate": "2022-08-05T14:26:38.664Z",
+            "freeRefundEligible": false,
+            "fulfillments": [],
+            "lootResult": [
+              {
+                "itemType": "AthenaCharacter:CID_186_Athena_Commando_M_Exercise",
+                "itemGuid": "AthenaCharacter:CID_186_Athena_Commando_M_Exercise",
+                "itemProfile": "athena",
+                "quantity": 1
+              }
+            ],
+            "totalMtxPaid": 1500,
+            "metadata": {},
+            "gameContext": ""
           }
         ]
       },
@@ -2356,5 +2410,5 @@
       "gift_history": {}
     }
   },
-  "commandRevision": 20
+  "commandRevision": 23
 }
